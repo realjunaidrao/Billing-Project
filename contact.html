@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Zxis Health RCM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Modern SaaS Variables (Main Brand Theme) --- */
+        :root {
+            --primary: #0D9488;     /* A/R teal */
+            --primary-dark: #0F766E;
+            --secondary: #0F172A;   /* Slate Dark */
+            --accent: #10B981;      /* Success Emerald */
+            --bg-main: #FFFFFF;
+            --bg-light: #F8FAFC;    /* Soft Gray */
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --radius: 16px;         /* Slightly rounder for premium feel */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-logo {
+            font-family: 'Outfit', sans-serif;
+            color: var(--secondary);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-padding { padding: 100px 0; }
+        .bg-light { background-color: var(--bg-light); }
+
+        /* --- Top Bar & Nav --- */
+        .top-bar {
+            background-color: var(--secondary); color: #F1F5F9;
+            font-size: 0.85rem; padding: 8px 0; font-weight: 500;
+            position: sticky; top: 0; z-index: 1001;
+        }
+        .top-bar-inner { display: flex; justify-content: space-between; }
+        .top-badges span { margin-left: 15px; color: var(--accent); }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            position: sticky; top: 32px; z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .brand-logo { font-size: 1.75rem; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .nav-menu { display: flex; gap: 32px; align-items: center; }
+        .nav-menu a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+        .nav-menu a:hover { color: var(--primary); }
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--secondary); }
+
+        /* --- Dropdown Menu --- */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 0;
+            background-color: #FFFFFF; min-width: 260px;
+            box-shadow: var(--shadow-lg); border-radius: 8px;
+            padding: 10px 0; list-style: none; border: 1px solid var(--border);
+            z-index: 2000; opacity: 0; visibility: hidden;
+            transform: translateY(15px); transition: all 0.3s ease;
+        }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-menu li a { display: block; padding: 12px 20px; color: var(--text-dark); font-weight: 500; transition: background 0.3s, color 0.3s; }
+        .dropdown-menu li a:hover { background-color: #F0FDFA; color: var(--primary); }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block; padding: 12px 24px;
+            border-radius: 8px; font-weight: 600; text-decoration: none;
+            cursor: pointer; transition: all 0.3s ease; text-align: center; border: none;
+        }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        /* --- Contact Hero (Overlapping UI Design) --- */
+        .hero-wrapper {
+            position: relative;
+            background: var(--bg-light);
+            padding-bottom: 120px; /* Space for overlapping cards */
+        }
+        .contact-hero {
+            background: radial-gradient(circle at top right, #1E293B, #0F172A);
+            color: white; padding: 120px 0 180px; 
+            text-align: center;
+            /* Subtle grid background pattern for tech/professional feel */
+            background-image: radial-gradient(circle at top right, #1E293B, #0F172A), linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+        }
+        .contact-hero-text h1 { color: white; font-size: 4rem; margin-bottom: 20px; letter-spacing: -1px; }
+        .contact-hero-text p { color: #94A3B8; font-size: 1.25rem; max-width: 650px; margin: 0 auto; }
+        
+        /* Overlapping Action Cards */
+        .overlapping-actions {
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translate(-50%, 50%);
+            width: 100%;
+            display: flex; gap: 30px; justify-content: center;
+            z-index: 10;
+        }
+        
+        .large-action-card {
+            display: flex; align-items: center; gap: 20px; text-decoration: none;
+            background: white; color: var(--text-dark); 
+            padding: 30px 40px; border-radius: var(--radius);
+            box-shadow: var(--shadow-xl); border: 1px solid var(--border);
+            width: 100%; max-width: 450px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .large-action-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15); }
+        
+        .action-icon-wrap {
+            width: 70px; height: 70px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; transition: transform 0.3s;
+        }
+        .large-action-card:hover .action-icon-wrap { transform: scale(1.1); }
+        .action-icon-wrap svg { width: 34px; height: 34px; fill: currentColor; }
+        
+        .large-action-text strong { display: block; font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 4px; }
+        .large-action-text span { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
+
+        /* Specific Brand Colors for Cards */
+        .wa-card .action-icon-wrap { background-color: #E8F9F0; color: #25D366; }
+        .wa-card:hover { border-bottom: 4px solid #25D366; }
+        
+        .email-card .action-icon-wrap { background-color: #F0FDFA; color: var(--primary); }
+        .email-card:hover { border-bottom: 4px solid var(--primary); }
+
+        /* --- Corporate Directory Section --- */
+        .contact-grid-section { padding: 80px 0 120px; background: var(--bg-main); }
+        
+        .section-heading { text-align: center; margin-bottom: 60px; }
+        .section-heading h2 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
+        .section-heading p { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* Core Contact Grid */
+        .core-info-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px; margin-bottom: 80px;
+        }
+        .core-card {
+            background: var(--bg-light); padding: 40px; border-radius: var(--radius);
+            border: 1px solid var(--border); text-align: center;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .core-card:hover { background: white; border-color: #99F6E4; box-shadow: var(--shadow-md); }
+        
+        .core-icon {
+            width: 60px; height: 60px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin: 0 auto 20px; box-shadow: var(--shadow-sm);
+        }
+        .core-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--secondary); }
+        .core-card p, .core-card a { color: var(--text-muted); font-size: 1.05rem; text-decoration: none; display: block; margin-bottom: 8px; }
+        .core-card a:hover { color: var(--primary); font-weight: 600; }
+        .highlight-text { color: var(--accent) !important; font-weight: 600; background: #D1FAE5; display: inline-block; padding: 4px 12px; border-radius: 20px; margin-top: 10px; font-size: 0.9rem !important;}
+
+        /* Department Directory (Redesigned) */
+        .directory-box {
+            background: white; border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 50px;
+            box-shadow: var(--shadow-sm);
+        }
+        .directory-box > h3 { font-size: 1.8rem; border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 40px; color: var(--secondary); }
+        
+        .directory-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;
+        }
+        .dept-item {
+            display: flex; gap: 20px; align-items: flex-start;
+            padding: 20px; border-radius: 12px; transition: background 0.3s;
+        }
+        .dept-item:hover { background: var(--bg-light); }
+        .dept-icon {
+            font-size: 1.8rem; background: #F0FDFA; width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center; border-radius: 10px; flex-shrink: 0;
+        }
+        .dept-details h4 { font-size: 1.25rem; color: var(--secondary); margin-bottom: 8px; }
+        .dept-details .email-link { font-weight: 600; color: var(--primary); text-decoration: none; display: inline-block; margin-bottom: 8px; }
+        .dept-details p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+
+        /* --- Contact Request Form --- */
+        .contact-form-section { padding: 0 0 120px; background: var(--bg-main); }
+        .contact-form-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items: center; }
+        .contact-form-copy h2 { font-size: 2.5rem; margin-bottom: 16px; }
+        .contact-form-copy p { color: var(--text-muted); font-size: 1.1rem; }
+        .contact-form { background: white; padding: 40px; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-md); }
+        .contact-form h3 { margin-bottom: 24px; }
+        .contact-input-group { margin-bottom: 20px; }
+        .contact-input-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
+        .contact-input-group input, .contact-input-group select, .contact-input-group textarea { width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 8px; font: inherit; }
+        .contact-input-group textarea { resize: vertical; }
+        .contact-input-group input:focus, .contact-input-group select:focus, .contact-input-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15); }
+        .contact-form-message { margin-top: 16px; padding: 12px; border-radius: 8px; font-weight: 600; text-align: center; }
+        .hidden { display: none; }
+
+        /* --- Footer (Center Social Icons with Original SVGs) --- */
+        .footer { background: #0B1120; color: #94A3B8; padding: 80px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand h2 { color: white; margin-bottom: 16px; }
+        .footer-links h4, .footer-contact h4 { color: white; margin-bottom: 20px; }
+        .footer-links a { display: block; color: #94A3B8; text-decoration: none; margin-bottom: 12px; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--primary); }
+        .footer-contact p { margin-bottom: 12px; }
+        
+        .footer-center-social {
+            text-align: center; margin: 40px 0; padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-center-social h4 { color: white; margin-bottom: 20px; font-size: 1.2rem; }
+        .social-icons-wrapper { display: inline-flex; justify-content: center; gap: 20px; }
+        .social-icon-btn {
+            display: flex; align-items: center; justify-content: center;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08); color: white;
+            text-decoration: none; transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .social-icon-btn svg { width: 26px; height: 26px; fill: currentColor; transition: transform 0.3s; }
+        .social-icon-btn.whatsapp:hover { background: #25D366; border-color: #25D366; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35); }
+        .social-icon-btn.mail:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 8px 20px rgba(13, 148, 136, 0.35); }
+        .social-icon-btn.insta:hover { background: #E1306C; border-color: #E1306C; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(225, 48, 108, 0.35); }
+        .social-icon-btn.facebook:hover { background: #1877F2; border-color: #1877F2; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(24, 119, 242, 0.35); }
+        .social-icon-btn:hover svg { transform: scale(1.1); }
+
+        .footer-bottom { padding-top: 20px; text-align: center; font-size: 0.95rem; }
+
+        /* --- Scroll Animations --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 992px) {
+            .hero-wrapper { padding-bottom: 0; }
+            .overlapping-actions { 
+                position: relative; transform: none; left: 0; top: 0; 
+                flex-direction: column; align-items: center; padding: 0 24px;
+                margin-top: -60px; /* Overlap effect for mobile */
+            }
+            .large-action-card { max-width: 100%; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .directory-grid { grid-template-columns: 1fr; }
+            .contact-form-layout { grid-template-columns: 1fr; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .hide-mobile { display: none; }
+            .menu-toggle { display: block; }
+            .nav-menu { position: absolute; top: 100%; left: 0; right: 0; background: white; flex-direction: column; padding: 24px; box-shadow: var(--shadow-md); display: none; gap: 20px; }
+            .nav-menu.active { display: flex; }
+            .dropdown { width: 100%; }
+            .dropdown-menu { position: static; box-shadow: none; border: none; border-left: 3px solid var(--primary); width: 100%; display: none; margin-top: 10px; padding: 5px 0; }
+            .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu { display: block; }
+            .footer-grid { grid-template-columns: 1fr; text-align: left; }
+            .contact-hero-text h1 { font-size: 3rem; }
+            .directory-box { padding: 30px 20px; }
+            .contact-form { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-contact">
+                <span>✉️ info@zxishealth.com</span>
+                <span class="hide-mobile">📞 +1 (800) 555-0199</span>
+            </div>
+            <div class="top-badges">
+                <span>🔒 HIPAA Compliant</span>
+                <span>✅ AAPC Certified</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="home.html" class="brand-logo">
+                <span class="brand-icon">✨</span> Zxis Health
+            </a>
+            
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="home.html">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Services ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="medicalbiling.html">Medical Billing</a></li>
+                        <li><a href="medicalcoding.html">Medical Coding</a></li>
+                        <li><a href="arrecovery.html">A/R Recovery</a></li>
+                        <li><a href="eligibilityverification.html">Eligibility Verification</a></li>
+                        <li><a href="credentialing.html">Credentialing</a></li>
+                        <li><a href="customanalytics.html">Custom Analytics</a></li>
+                    </ul>
+                </div>
+                <a href="whyus.html">Why Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="freeaudit.html" class="btn btn-primary">Get Free Audit</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Overlapping Action Cards -->
+    <div class="hero-wrapper">
+        <section class="contact-hero">
+            <div class="container contact-hero-text reveal">
+                <h1>We're Here to Help.</h1>
+                <p>Have questions about your revenue cycle, credentialing timelines, or enterprise integration? Connect directly with our experts via instant channels.</p>
+            </div>
+        </section>
+
+        <!-- Overlapping Large Action Cards -->
+        <div class="overlapping-actions reveal">
+            <!-- WhatsApp Card -->
+            <a href="https://wa.me/18005550199" target="_blank" rel="noopener noreferrer" class="large-action-card wa-card">
+                <div class="action-icon-wrap">
+                    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.118.555 4.105 1.532 5.836l-1.532 5.597 5.736-1.505c1.677.914 3.606 1.439 5.664 1.439 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg>
+                </div>
+                <div class="large-action-text">
+                    <strong>WhatsApp Us</strong>
+                    <span>Real-time chat support</span>
+                </div>
+            </a>
+
+            <!-- Email Card -->
+            <a href="mailto:info@zxishealth.com" class="large-action-card email-card">
+                <div class="action-icon-wrap">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div class="large-action-text">
+                    <strong>Email Us</strong>
+                    <span>info@zxishealth.com</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Contact Information Section -->
+    <section class="contact-grid-section">
+        <div class="container">
+            
+            <div class="section-heading reveal">
+                <h2>Global Reach, Local Support</h2>
+                <p>We provide comprehensive revenue cycle management to practices across all 50 states.</p>
+            </div>
+
+            <!-- Core Info Grid -->
+            <div class="core-info-grid reveal">
+                <div class="core-card">
+                    <div class="core-icon">📍</div>
+                    <h3>Corporate Headquarters</h3>
+                    <p>700 Medical Way, Suite 400</p>
+                    <p>Houston, TX 77002, USA</p>
+                </div>
+                
+                <div class="core-card">
+                    <div class="core-icon">📞</div>
+                    <h3>Direct Lines</h3>
+                    <p>Main: <a href="tel:+18005550199">+1 (800) 555-0199</a></p>
+                    <p>Escalations: <a href="tel:+12147990846">+1 (214) 799-0846</a></p>
+                    <p>Fax: +1 (800) 555-0198</p>
+                </div>
+                
+                <div class="core-card">
+                    <div class="core-icon">🕒</div>
+                    <h3>Operating Hours</h3>
+                    <p>Mon - Fri: 8:00 AM – 6:00 PM EST</p>
+                    <p>Mon - Sat: 7:00 AM – 7:00 PM EST (A/R)</p>
+                    <span class="highlight-text">Emergency Support Available</span>
+                </div>
+            </div>
+
+            <!-- Corporate Department Directory -->
+            <div class="directory-box reveal">
+                <h3>Corporate Directory</h3>
+                
+                <div class="directory-grid">
+                    <div class="dept-item">
+                        <div class="dept-icon">🛡️</div>
+                        <div class="dept-details">
+                            <h4>HIPAA & Security Desk</h4>
+                            <a href="mailto:compliance@zxishealth.com" class="email-link">compliance@zxishealth.com</a>
+                            <p>For BAA execution, security questionnaire requests, or encrypted audit documentation submission.</p>
+                        </div>
+                    </div>
+
+                    <div class="dept-item">
+                        <div class="dept-icon">📝</div>
+                        <div class="dept-details">
+                            <h4>Provider Credentialing</h4>
+                            <a href="mailto:credentialing@zxishealth.com" class="email-link">credentialing@zxishealth.com</a>
+                            <p>For document drops, PECOS status updates, or CAQH profile synchronization verification.</p>
+                        </div>
+                    </div>
+
+                    <div class="dept-item">
+                        <div class="dept-icon">🤝</div>
+                        <div class="dept-details">
+                            <h4>Partnerships & Integrations</h4>
+                            <a href="mailto:integrations@zxishealth.com" class="email-link">integrations@zxishealth.com</a>
+                            <p>For EHR vendors, software integration queries, open APIs, and enterprise partnership onboarding.</p>
+                        </div>
+                    </div>
+
+                    <div class="dept-item">
+                        <div class="dept-icon">⏱️</div>
+                        <div class="dept-details">
+                            <h4>Support SLA Guarantees</h4>
+                            <p style="margin-bottom: 5px;"><strong>General Inquiries:</strong> Under 2 hours</p>
+                            <p><strong>Denial Escalations:</strong> Under 24 hours</p>
+                            <p style="margin-top: 8px;"><em>Dedicated Account Managers are assigned to practices with >$50k monthly volume.</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Request Form -->
+    <section class="contact-form-section">
+        <div class="container contact-form-layout">
+            <div class="contact-form-copy reveal">
+                <h2>Let’s Talk About Your Revenue.</h2>
+                <p>Tell us what your practice needs and our team will review your request and respond during business hours.</p>
+            </div>
+            <div class="contact-form reveal">
+                <form id="contact-form">
+                    <h3>Send a Message</h3>
+                    <div class="contact-input-group">
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" required placeholder="John Doe">
+                    </div>
+                    <div class="contact-input-group">
+                        <label for="contact-email">Email Address</label>
+                        <input type="email" id="contact-email" required placeholder="john@example.com">
+                    </div>
+                    <div class="contact-input-group">
+                        <label for="contact-phone">Phone Number</label>
+                        <input type="tel" id="contact-phone" required placeholder="(555) 123-4567">
+                    </div>
+                    <div class="contact-input-group">
+                        <label for="contact-service">Service You Want</label>
+                        <select id="contact-service" required>
+                            <option value="" disabled selected>Select a service...</option>
+                            <option value="medical_billing">Medical Billing</option>
+                            <option value="medical_coding">Medical Coding</option>
+                            <option value="ar_recovery">A/R Recovery</option>
+                            <option value="eligibility_verification">Eligibility Verification</option>
+                            <option value="credentialing">Credentialing & Enrollment</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="contact-input-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" rows="4" required placeholder="Tell us about your practice or specific needs..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="contact-submit">Send Message</button>
+                    <div id="contact-form-message" class="contact-form-message hidden"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Center Social / Communication Icons (Original Official SVGs) -->
+    <footer id="contact" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2><span class="brand-icon">✨</span> Zxis Health</h2>
+                <p>Transforming the financial health of medical practices through intelligent billing solutions and dedicated expertise.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <a href="medicalbiling.html">Medical Billing</a>
+                <a href="medicalcoding.html">Medical Coding</a>
+                <a href="arrecovery.html">A/R Recovery</a>
+                <a href="customanalytics.html">Custom Analytics</a>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <a href="whyus.html">Why Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>📍 700 Medical Way, TX 77002</p>
+                <p>📞 +1 (800) 555-0199</p>
+                <p>✉️ info@zxishealth.com</p>
+            </div>
+        </div>
+
+        <!-- Centered Clickable Communication Icons with Original SVGs -->
+        <div class="footer-center-social">
+            <h4>Connect With Us</h4>
+            <div class="social-icons-wrapper">
+                <!-- WhatsApp SVG -->
+                <a href="https://wa.me/18005550199" target="_blank" rel="noopener noreferrer" class="social-icon-btn whatsapp" title="WhatsApp">
+                    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.118.555 4.105 1.532 5.836l-1.532 5.597 5.736-1.505c1.677.914 3.606 1.439 5.664 1.439 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                
+                <!-- Mail/Email SVG -->
+                <a href="mailto:info@zxishealth.com" class="social-icon-btn mail" title="Email">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+
+                <!-- Instagram SVG -->
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn insta" title="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+
+                <!-- Facebook SVG -->
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" title="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Zxis Health LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+
+            if(menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); 
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => { revealOnScroll.observe(el); });
+
+            const contactForm = document.getElementById('contact-form');
+            const contactSubmit = document.getElementById('contact-submit');
+            const contactFormMessage = document.getElementById('contact-form-message');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (event) => {
+                    event.preventDefault();
+
+                    const originalButtonText = contactSubmit.textContent;
+                    const payload = {
+                        name: document.getElementById('contact-name').value,
+                        email: document.getElementById('contact-email').value,
+                        phone: document.getElementById('contact-phone').value,
+                        service: document.getElementById('contact-service').value,
+                        message: document.getElementById('contact-message').value
+                    };
+
+                    contactSubmit.disabled = true;
+                    contactSubmit.textContent = 'Sending...';
+                    contactFormMessage.classList.add('hidden');
+
+                    try {
+                        const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        const responseData = await response.json();
+
+                        if (!response.ok) {
+                            throw new Error(responseData.message || 'Server rejected the request.');
+                        }
+
+                        contactFormMessage.textContent = responseData.message || 'Your message was sent successfully.';
+                        contactFormMessage.style.backgroundColor = '#D1FAE5';
+                        contactFormMessage.style.color = '#065F46';
+                        contactFormMessage.classList.remove('hidden');
+                        contactForm.reset();
+                    } catch (error) {
+                        contactFormMessage.textContent = error.message || 'Could not connect to the backend server.';
+                        contactFormMessage.style.backgroundColor = '#FEE2E2';
+                        contactFormMessage.style.color = '#991B1B';
+                        contactFormMessage.classList.remove('hidden');
+                    } finally {
+                        contactSubmit.disabled = false;
+                        contactSubmit.textContent = originalButtonText;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

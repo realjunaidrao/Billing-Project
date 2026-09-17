@@ -47,13 +47,14 @@
         .top-bar {
             background-color: var(--secondary); color: #F1F5F9;
             font-size: 0.85rem; padding: 8px 0; font-weight: 500;
+            position: sticky; top: 0; z-index: 1001;
         }
         .top-bar-inner { display: flex; justify-content: space-between; }
         .top-badges span { margin-left: 15px; color: var(--accent); }
         
         .navbar {
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-            position: sticky; top: 0; z-index: 1000;
+            position: sticky; top: 32px; z-index: 1000;
             border-bottom: 1px solid var(--border);
         }
         .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
@@ -224,7 +225,7 @@
                     </ul>
                 </div>
                 <a href="whyus.html">Why Us</a>
-                <a href="index.html#contact">Contact</a>
+                <a href="contact.html">Contact</a>
                 <a href="freeaudit.html" class="btn btn-primary">Get Free Audit</a>
             </nav>
         </div>
@@ -327,7 +328,7 @@
                     </div>
                     
                     <button type="submit" class="btn btn-primary w-full" id="api-submit-btn">
-                        <span>Send Message via API</span>
+                        <span>Submit</span>
                     </button>
                     <!-- Status message container for API response -->
                     <div id="api-status-message" class="form-message hidden"></div>
