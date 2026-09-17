@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eligibility & Benefits Verification | Zxis Health</title>
+    <title>Free Practice Financial Audit | Zxis Health</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
@@ -67,7 +67,7 @@
         .dropdown { position: relative; display: inline-block; }
         .dropdown-menu {
             position: absolute; top: 100%; left: 0;
-            background-color: #FFFFFF; min-width: 240px;
+            background-color: #FFFFFF; min-width: 260px;
             box-shadow: var(--shadow-lg); border-radius: 8px;
             padding: 10px 0; list-style: none; border: 1px solid var(--border);
             z-index: 2000; opacity: 0; visibility: hidden;
@@ -87,72 +87,41 @@
         .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
         .w-full { width: 100%; }
 
-        /* --- Inner Page Header --- */
-        .page-header {
-            background: linear-gradient(135deg, var(--secondary) 0%, #312E81 100%); /* Deep Indigo gradient */
-            color: white; padding: 100px 0 80px;
-            text-align: center;
-            border-bottom: 4px solid var(--primary);
+        /* --- Split Hero & Form Section (NEW LAYOUT) --- */
+        .hero-split-section {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); 
+            padding: 80px 0 100px;
+            border-bottom: 4px solid var(--accent);
         }
-        .page-header h1 { color: white; font-size: 3.2rem; margin-bottom: 16px; }
-        .page-header p { font-size: 1.2rem; color: #E2E8F0; max-width: 750px; margin: 0 auto; }
-
-        /* --- Detail Section (New for this page) --- */
-        .detail-section { padding: 80px 0; }
-        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .detail-content h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--secondary); }
-        .detail-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; }
-        .detail-list { list-style: none; margin-top: 20px; }
-        .detail-list li { 
-            position: relative; padding-left: 30px; margin-bottom: 15px; 
-            font-size: 1.05rem; font-weight: 500; color: var(--text-dark);
-        }
-        .detail-list li::before {
-            content: '✓'; position: absolute; left: 0; top: 0;
-            color: var(--accent); font-weight: bold; font-size: 1.2rem;
-        }
-        .detail-card {
-            background: var(--bg-light); padding: 40px; border-radius: var(--radius);
-            border: 1px solid var(--border); box-shadow: var(--shadow-sm);
-        }
-        .detail-card h3 { color: var(--primary); margin-bottom: 15px; border-bottom: 2px solid var(--border); padding-bottom: 10px;}
-
-        /* --- Process Grid --- */
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 16px; }
-        .section-header p { font-size: 1.1rem; color: var(--text-muted); }
-        
-        .process-grid {
+        .hero-split-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px; margin-top: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
-        .process-step {
-            background: var(--bg-main); padding: 40px 30px;
-            border-radius: var(--radius); box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border);
-            text-align: center; transition: transform 0.3s;
+        .hero-text h1 { color: white; font-size: 3.2rem; margin-bottom: 20px; line-height: 1.2;}
+        .hero-text p { color: #94A3B8; font-size: 1.15rem; margin-bottom: 30px; }
+        .hero-list { list-style: none; margin-bottom: 30px; }
+        .hero-list li { 
+            color: white; font-size: 1.1rem; margin-bottom: 15px; 
+            display: flex; align-items: center; gap: 10px; 
         }
-        .process-step:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-        .step-number {
-            background: var(--primary); color: white;
-            width: 50px; height: 50px; border-radius: 50%;
+        .hero-list li span {
+            background: rgba(16, 185, 129, 0.2); color: var(--accent);
+            width: 28px; height: 28px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; font-weight: 700;
-            margin: 0 auto 20px; font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem; font-weight: bold;
         }
-        .process-step h3 { margin-bottom: 15px; font-size: 1.3rem; }
 
-        /* --- Audit Form Layout --- */
-        .audit-section { background: var(--secondary); color: white; }
-        .audit-section h2 { color: white; font-size: 2.5rem; margin-bottom: 24px; }
-        .audit-section p { color: #94A3B8; font-size: 1.1rem; margin-bottom: 32px; }
-        .form-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .card-form { background: white; padding: 40px; border-radius: var(--radius); color: var(--text-dark); }
-        .card-form h3 { margin-bottom: 24px; }
+        /* Hero Form Styling */
+        .card-form { 
+            background: white; padding: 40px; 
+            border-radius: var(--radius); color: var(--text-dark); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .card-form h3 { margin-bottom: 24px; color: var(--secondary); font-size: 1.8rem;}
         .input-group { margin-bottom: 20px; text-align: left; }
         .input-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
-        
         .input-group input, .input-group select, .input-group textarea {
             width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 8px;
             font-family: inherit; font-size: 1rem; background-color: white;
@@ -163,6 +132,64 @@
         }
         .form-message { margin-top: 16px; padding: 12px; border-radius: 8px; font-weight: 600; text-align: center; }
         .hidden { display: none; }
+
+        /* --- Detail Section --- */
+        .detail-section { padding: 80px 0; }
+        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .detail-content h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--secondary); }
+        .detail-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; }
+        
+        .highlight-box {
+            background: #EFF6FF; border-left: 4px solid var(--primary);
+            padding: 20px; border-radius: 0 var(--radius) var(--radius) 0;
+            margin-bottom: 20px;
+        }
+        .highlight-box h4 { color: var(--primary-dark); margin-bottom: 8px; }
+        
+        .detail-card {
+            background: var(--bg-light); padding: 40px; border-radius: var(--radius);
+            border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+        }
+        .detail-card h3 { color: var(--secondary); margin-bottom: 20px; border-bottom: 2px solid var(--border); padding-bottom: 10px;}
+        
+        .audit-list { list-style: none; }
+        .audit-list li { 
+            display: flex; align-items: flex-start; gap: 12px;
+            margin-bottom: 16px; font-size: 1.05rem;
+        }
+        .audit-list li span {
+            background: var(--accent); color: white;
+            width: 24px; height: 24px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: bold; flex-shrink: 0; margin-top: 3px;
+        }
+
+        /* --- Process Grid (How it works) --- */
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 16px; }
+        .section-header p { font-size: 1.1rem; color: var(--text-muted); }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; margin-top: 40px;
+        }
+        .process-step {
+            background: var(--bg-main); padding: 40px 30px;
+            border-radius: var(--radius); box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            text-align: center; transition: transform 0.3s;
+        }
+        .process-step:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+        
+        .step-number {
+            background: var(--primary); color: white;
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 700;
+            margin: 0 auto 20px; font-family: 'Outfit', sans-serif;
+        }
+        .process-step h3 { margin-bottom: 15px; font-size: 1.3rem; color: var(--secondary); }
 
         /* --- Footer --- */
         .footer { background: #0B1120; color: #94A3B8; padding: 80px 0 20px; }
@@ -182,7 +209,9 @@
 
         /* --- Mobile Responsiveness --- */
         @media (max-width: 992px) {
-            .detail-grid, .form-layout { grid-template-columns: 1fr; gap: 40px; }
+            .hero-split-grid, .detail-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-text { text-align: center; }
+            .hero-list li { justify-content: center; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
@@ -229,7 +258,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="medicalbiling.html">Medical Billing</a></li>
                         <li><a href="medicalcoding.html">Medical Coding</a></li>
-                        <li><a href="arrecovery.html">A/R Recovery</a></li>
+                        <li><a href="ar-recovery.html">A/R Recovery</a></li>
                         <li><a href="eligibilityverification.html">Eligibility Verification</a></li>
                         <li><a href="credentialing.html">Credentialing</a></li>
                         <li><a href="customanalytics.html">Custom Analytics</a></li>
@@ -242,93 +271,30 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container reveal">
-            <h1>Real-Time Eligibility Verification</h1>
-            <p>Over 70% of claim denials are caused by simple eligibility issues. Stop revenue leaks before the patient even walks through your door with our comprehensive verification services.</p>
-        </div>
-    </section>
-
-    <!-- Detailed Explanation Section -->
-    <section class="detail-section">
-        <div class="container detail-grid">
-            <div class="detail-content reveal">
-                <h2>Why Eligibility Verification Matters</h2>
-                <p>Assuming a patient's insurance is active just because they have a card on file is the fastest way to increase your A/R days and write-offs. Payers change rules, deductibles reset, and policies terminate daily.</p>
-                <p>Zxis Health acts as an extension of your front desk. We proactively secure the data required to guarantee payment, allowing your staff to confidently collect exact copays and deductibles at the time of service.</p>
-                
-                <ul class="detail-list">
-                    <li>Drastically reduce first-pass claim denials.</li>
-                    <li>Increase upfront point-of-service patient collections.</li>
-                    <li>Avoid unexpected out-of-network penalties.</li>
-                    <li>Reduce administrative burden on your internal staff.</li>
-                </ul>
-            </div>
-            <div class="detail-card reveal fade-right">
-                <h3>What We Verify</h3>
-                <ul class="detail-list" style="margin-top:0;">
-                    <li><strong>Coverage Status:</strong> Active/Inactive dates.</li>
-                    <li><strong>Benefit Breakdown:</strong> Exact Copays and Co-insurance percentages.</li>
-                    <li><strong>Deductibles:</strong> Amount met vs. unmet for the current year.</li>
-                    <li><strong>Out-of-Pocket Maximums:</strong> Tracking patient limits.</li>
-                    <li><strong>Primary vs. Secondary:</strong> Coordination of Benefits (COB) hierarchy.</li>
-                    <li><strong>Specialty Clearances:</strong> PCP referrals and network status (HMO/PPO).</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Details & Process Grid -->
-    <section class="section-padding bg-light">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Our Verification Workflow</h2>
-                <p>A seamless, background process integrated perfectly into your daily clinic schedule.</p>
-            </div>
+    <!-- Split Hero & Form Section (FORM AT THE TOP) -->
+    <section class="hero-split-section">
+        <div class="container hero-split-grid">
             
-            <div class="process-grid">
-                <div class="process-step reveal">
-                    <div class="step-number">1</div>
-                    <h3>Pre-Visit Schedule Sync</h3>
-                    <p>We access your EMR schedule 48 to 72 hours prior to the patient's appointment to extract demographics and insurance card data.</p>
-                </div>
+            <!-- Left Side: Value Proposition -->
+            <div class="hero-text reveal">
+                <h1>Comprehensive Financial Audit</h1>
+                <p>Are you leaving money on the table? Let our certified RCM experts analyze your billing data to uncover hidden revenue leaks—at zero cost and zero obligation.</p>
                 
-                <div class="process-step reveal" style="transition-delay: 100ms;">
-                    <div class="step-number">2</div>
-                    <h3>Clearinghouse Ping</h3>
-                    <p>Our systems automatically ping the payer's database via EDI 270/271 queries to confirm active status in real-time.</p>
-                </div>
-                
-                <div class="process-step reveal" style="transition-delay: 200ms;">
-                    <div class="step-number">3</div>
-                    <h3>Deep Dive Investigation</h3>
-                    <p>For complex cases, specialty visits, or manual payers, our team directly calls the insurance provider to secure accurate benefit breakdowns.</p>
-                </div>
-                
-                <div class="process-step reveal" style="transition-delay: 300ms;">
-                    <div class="step-number">4</div>
-                    <h3>Front Desk Notification</h3>
-                    <p>We update the patient chart with a clear summary sheet, highlighting exactly what amount your front desk needs to collect at check-in.</p>
-                </div>
+                <ul class="hero-list">
+                    <li><span>✓</span> Discover exact reasons for high denial rates.</li>
+                    <li><span>✓</span> Expose under-priced fee schedules.</li>
+                    <li><span>✓</span> Evaluate the health of your aging A/R buckets.</li>
+                </ul>
             </div>
-        </div>
-    </section>
 
-    <!-- API Demo Form Section (Reused & Updated) -->
-    <section id="api-demo-form" class="audit-section section-padding">
-        <div class="container form-layout">
-            <div class="form-content reveal">
-                <h2>Secure Your Revenue Upfront.</h2>
-                <p>Submit your details below. Let us show you how outsourcing your eligibility verification can instantly improve cash flow and eliminate front-desk bottlenecks.</p>
-            </div>
+            <!-- Right Side: The Form -->
             <div class="form-wrapper reveal fade-right">
                 <form id="billing-api-form" class="card-form">
-                    <h3>Consultation Request</h3>
+                    <h3>Request Audit</h3>
                     
                     <div class="input-group">
                         <label>Name</label>
-                        <input type="text" id="api-name" required placeholder="John Doe">
+                        <input type="text" id="api-name" required placeholder="Dr. John Doe / Manager">
                     </div>
                     
                     <div class="input-group">
@@ -344,27 +310,96 @@
                     <div class="input-group">
                         <label>Service You Want</label>
                         <select id="api-service" required>
-                            <option value="" disabled>Select a service...</option>
-                            <option value="medical-billing">Medical Billing</option>
-                            <option value="medical-coding">Medical Coding</option>
-                            <option value="ar-recovery">A/R Recovery</option>
-                            <option value="eligibility" selected>Eligibility Verification</option>
+                            <option value="freeaudit.html" selected>Free Practice Financial Audit</option>
+                            <option value="medicalbiling">Medical Billing</option>
+                            <option value="medicalcoding">Medical Coding</option>
+                            <option value="arrecovery">A/R Recovery</option>
+                            <option value="eligibilityverification">Eligibility Verification</option>
                             <option value="credentialing">Credentialing & Enrollment</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
                     
                     <div class="input-group">
-                        <label>Drop your message here</label>
-                        <textarea id="api-message" rows="4" required placeholder="Tell us how many patient visits you average per week..."></textarea>
+                        <label>Practice Details</label>
+                        <textarea id="api-message" rows="3" required placeholder="Current EMR system and average monthly collections..."></textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-primary w-full" id="api-submit-btn">
-                        <span>Send Message via API</span>
+                        <span>Get My Free Audit</span>
                     </button>
                     <!-- Status message container for API response -->
                     <div id="api-status-message" class="form-message hidden"></div>
                 </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Detailed Explanation Section (BELOW THE FORM) -->
+    <section class="detail-section">
+        <div class="container detail-grid">
+            <div class="detail-content reveal">
+                <h2>Discover Your True Earning Potential</h2>
+                <p>The average medical practice loses between 5% and 10% of its potential revenue to preventable denials, under-coding, and unworked accounts receivable. If you rely on internal billing or an underperforming vendor, these leaks can compound into massive losses over time.</p>
+                
+                <div class="highlight-box">
+                    <h4>No Risk. Total Transparency.</h4>
+                    <p>Our free audit is not a sales pitch; it is a deep-dive diagnostic of your current financial health. We provide you with hard data on where your process is failing and exactly how much revenue you are missing.</p>
+                </div>
+                
+                <p>Armed with this independent analysis, you can make informed decisions about your practice's operations, whether you choose to partner with Zxis Health or optimize your internal team.</p>
+            </div>
+            <div class="detail-card reveal fade-right">
+                <h3>What Our Audit Reveals</h3>
+                <ul class="audit-list">
+                    <li>
+                        <span>✓</span>
+                        <div><strong>Denial Root Causes:</strong> We identify the exact payer trends and coding errors causing your claims to reject.</div>
+                    </li>
+                    <li>
+                        <span>✓</span>
+                        <div><strong>A/R Aging Health:</strong> We analyze your 90+ and 120+ day buckets to determine collectability and write-off risks.</div>
+                    </li>
+                    <li>
+                        <span>✓</span>
+                        <div><strong>Fee Schedule Benchmarking:</strong> We compare what you are charging against what payers are currently allowing to ensure you aren't under-pricing services.</div>
+                    </li>
+                    <li>
+                        <span>✓</span>
+                        <div><strong>E&M Coding Accuracy:</strong> A review of your evaluation and management bell curve to ensure compliance and maximize safe reimbursements.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details & Process Grid -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>How The Audit Works</h2>
+                <p>Three simple steps to gaining complete clarity over your revenue cycle.</p>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-step reveal">
+                    <div class="step-number">1</div>
+                    <h3>Secure Data Transfer</h3>
+                    <p>Upon signing a mutual NDA and BAA, we securely pull a limited set of your raw billing data (such as an aging report or recent claims batch) via encrypted channels.</p>
+                </div>
+                
+                <div class="process-step reveal" style="transition-delay: 100ms;">
+                    <div class="step-number">2</div>
+                    <h3>Expert Analysis</h3>
+                    <p>Our AAPC-certified coders and senior A/R analysts review your data, checking against current NCCI edits, payer policies, and industry benchmarks.</p>
+                </div>
+                
+                <div class="process-step reveal" style="transition-delay: 200ms;">
+                    <div class="step-number">3</div>
+                    <h3>Executive Review</h3>
+                    <p>Within 3 to 5 business days, we present you with a comprehensive, easy-to-read executive summary highlighting lost revenue and offering actionable solutions.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -378,10 +413,12 @@
             </div>
             <div class="footer-links">
                 <h4>Solutions</h4>
-                <a href="medical-billing.html">Medical Billing</a>
-                <a href="medical-coding.html">Medical Coding</a>
-                <a href="ar-recovery.html">A/R Recovery</a>
-                <a href="eligibility-verification.html">Eligibility Verification</a>
+                <a href="medicalbiling.html">Medical Billing</a>
+                <a href="medicalcoding.html">Medical Coding</a>
+                <a href="arrecovery.html">A/R Recovery</a>
+                <a href="customanalytics.html">Custom Analytics</a>
+                <a href="eligibilityverification.html">Eligibility Verification</a>
+                <a href="credentialing.html">Credentialing</a>
             </div>
             <div class="footer-links">
                 <h4>Company</h4>
@@ -435,7 +472,7 @@
                 revealOnScroll.observe(el);
             });
 
-            // --- 3. API Integration ---
+            // --- 3. Dummy API Integration ---
             const apiForm = document.getElementById('billing-api-form');
             const apiStatusMessage = document.getElementById('api-status-message');
             const apiSubmitBtn = document.getElementById('api-submit-btn');
@@ -458,6 +495,7 @@
                         phone: phone,
                         service: service,
                         message: message,
+                        source: 'zxishealth.com - Top Form Free Audit Request'
                     };
 
                     const originalBtnText = apiSubmitBtn.innerHTML;
@@ -466,20 +504,28 @@
                     apiStatusMessage.classList.add('hidden');
 
                     try {
-                        const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
+                        const mockApiResponse = await new Promise((resolve) => {
+                            setTimeout(() => {
+                                resolve({
+                                    status: 200,
+                                    json: () => Promise.resolve({ 
+                                        success: true, 
+                                        leadId: "ZXIS-AUDIT-" + Math.floor(Math.random() * 10000),
+                                        message: "Audit request successfully submitted."
+                                    })
+                                });
+                            }, 1500);
                         });
-                        const responseData = await response.json();
 
-                        if (response.ok) {
-                            apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message || 'Consultation request submitted successfully.'}`;
+                        const responseData = await mockApiResponse.json();
+
+                        if (mockApiResponse.status === 200) {
+                            apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message} <br> <small>Reference ID: ${responseData.leadId}</small>`;
                             apiStatusMessage.style.backgroundColor = '#D1FAE5';
                             apiStatusMessage.style.color = '#065F46';
                             apiForm.reset();
                         } else {
-                            throw new Error(responseData.message || 'Server rejected the request.');
+                            throw new Error("Server rejected the request.");
                         }
 
                     } catch (error) {

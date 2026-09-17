@@ -62,27 +62,54 @@ document.addEventListener('DOMContentLoaded', () => {
         counterObserver.observe(statsBanner);
     }
 
-    // --- 4. Interactive Form Handling (DOM Manipulation) ---
+    // --- 4. Consultation Form API Integration ---
     const leadForm = document.getElementById('lead-form');
     const formMessage = document.getElementById('form-message');
 
     if (leadForm) {
-        leadForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent page reload
+        leadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-            const practiceName = document.getElementById('practice').value;
-            
-            // Dynamic UI update
-            formMessage.innerHTML = `✅ Audit requested for <strong>${practiceName}</strong>. Our team will contact you within 24 hours.`;
-            formMessage.classList.remove('hidden');
+            const submitButton = leadForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            const payload = {
+                name: document.getElementById('practice').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
 
-            // Reset form fields
-            leadForm.reset();
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            formMessage.classList.add('hidden');
 
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                formMessage.classList.add('hidden');
-            }, 5000);
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const responseData = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(responseData.message || 'Server rejected the request.');
+                }
+
+                formMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message || 'Consultation request submitted successfully.'}`;
+                formMessage.style.backgroundColor = '#D1FAE5';
+                formMessage.style.color = '#065F46';
+                formMessage.classList.remove('hidden');
+                leadForm.reset();
+            } catch (error) {
+                formMessage.textContent = `❌ ${error.message || 'Could not connect to the backend server.'}`;
+                formMessage.style.backgroundColor = '#FEE2E2';
+                formMessage.style.color = '#991B1B';
+                formMessage.classList.remove('hidden');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
         });
     }
 });

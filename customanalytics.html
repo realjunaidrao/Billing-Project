@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Billing Services | Zxis Health</title>
+    <title>Custom Analytics & Reporting | Zxis Health</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Modern SaaS Variables --- */
+        /* --- Modern SaaS Variables (Main Brand Theme) --- */
         :root {
             --primary: #2563EB;     /* Royal Blue */
             --primary-dark: #1D4ED8;
@@ -24,11 +24,7 @@
             --radius: 12px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -43,128 +39,94 @@
             color: var(--secondary);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         .section-padding { padding: 100px 0; }
         .bg-light { background-color: var(--bg-light); }
 
         /* --- Top Bar & Nav --- */
         .top-bar {
-            background-color: var(--secondary);
-            color: #F1F5F9;
-            font-size: 0.85rem;
-            padding: 8px 0;
-            font-weight: 500;
+            background-color: var(--secondary); color: #F1F5F9;
+            font-size: 0.85rem; padding: 8px 0; font-weight: 500;
         }
         .top-bar-inner { display: flex; justify-content: space-between; }
         .top-badges span { margin-left: 15px; color: var(--accent); }
         
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 1000;
             border-bottom: 1px solid var(--border);
         }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-        .brand-logo {
-            font-size: 1.75rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .brand-logo { font-size: 1.75rem; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px; }
         .nav-menu { display: flex; gap: 32px; align-items: center; }
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+        .nav-menu a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
         .nav-menu a:hover { color: var(--primary); }
-        
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--secondary);
-        }
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--secondary); }
 
         /* --- Dropdown Menu --- */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-menu {
-            position: absolute;
-            top: 100%; left: 0;
-            background-color: #FFFFFF;
-            min-width: 240px;
-            box-shadow: var(--shadow-lg);
-            border-radius: 8px;
-            padding: 10px 0;
-            list-style: none;
-            border: 1px solid var(--border);
-            z-index: 2000;
-            opacity: 0; visibility: hidden;
-            transform: translateY(15px);
-            transition: all 0.3s ease;
+            position: absolute; top: 100%; left: 0;
+            background-color: #FFFFFF; min-width: 260px;
+            box-shadow: var(--shadow-lg); border-radius: 8px;
+            padding: 10px 0; list-style: none; border: 1px solid var(--border);
+            z-index: 2000; opacity: 0; visibility: hidden;
+            transform: translateY(15px); transition: all 0.3s ease;
         }
-        .dropdown:hover .dropdown-menu {
-            opacity: 1; visibility: visible; transform: translateY(0);
-        }
-        .dropdown-menu li a {
-            display: block; padding: 12px 20px;
-            color: var(--text-dark); font-weight: 500;
-            transition: background 0.3s, color 0.3s;
-        }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-menu li a { display: block; padding: 12px 20px; color: var(--text-dark); font-weight: 500; transition: background 0.3s, color 0.3s; }
         .dropdown-menu li a:hover { background-color: #EFF6FF; color: var(--primary); }
 
         /* --- Buttons --- */
         .btn {
             display: inline-block; padding: 12px 24px;
-            border-radius: 8px; font-weight: 600;
-            text-decoration: none; cursor: pointer;
-            transition: all 0.3s ease; text-align: center; border: none;
+            border-radius: 8px; font-weight: 600; text-decoration: none;
+            cursor: pointer; transition: all 0.3s ease; text-align: center; border: none;
         }
-        .btn-primary {
-            background: var(--primary); color: white;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-        }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3); }
         .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
         .w-full { width: 100%; }
 
-        /* --- Inner Page Header --- */
+        /* --- Inner Page Header (Premium Analytics Theme) --- */
         .page-header {
-            background: linear-gradient(135deg, var(--secondary) 0%, #1E293B 100%);
-            color: white;
-            padding: 100px 0 80px;
+            /* Deep tech/analytics gradient */
+            background: linear-gradient(135deg, var(--secondary) 0%, #4C1D95 100%); 
+            color: white; padding: 100px 0 80px;
             text-align: center;
             border-bottom: 4px solid var(--primary);
         }
-        .page-header h1 { color: white; font-size: 3rem; margin-bottom: 16px; }
-        .page-header p { font-size: 1.2rem; color: #94A3B8; max-width: 700px; margin: 0 auto; }
+        .page-header h1 { color: white; font-size: 3.2rem; margin-bottom: 16px; }
+        .page-header p { font-size: 1.2rem; color: #E2E8F0; max-width: 750px; margin: 0 auto; }
 
-        /* --- Process Grid --- */
+        /* --- Detail Section --- */
+        .detail-section { padding: 80px 0; }
+        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .detail-content h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--secondary); }
+        .detail-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; }
+        .detail-list { list-style: none; margin-top: 20px; }
+        .detail-list li { 
+            position: relative; padding-left: 30px; margin-bottom: 15px; 
+            font-size: 1.05rem; font-weight: 500; color: var(--text-dark);
+        }
+        .detail-list li::before {
+            content: '✓'; position: absolute; left: 0; top: 0;
+            color: var(--accent); font-weight: bold; font-size: 1.2rem;
+        }
+        .detail-card {
+            background: var(--bg-light); padding: 40px; border-radius: var(--radius);
+            border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+        }
+        .detail-card h3 { color: var(--primary); margin-bottom: 15px; border-bottom: 2px solid var(--border); padding-bottom: 10px;}
+
+        /* --- Process/Features Grid --- */
         .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 16px; }
         .section-header p { font-size: 1.1rem; color: var(--text-muted); }
         
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; margin-top: 40px;
         }
         .process-step {
             background: var(--bg-main); padding: 40px 30px;
@@ -173,55 +135,40 @@
             text-align: center; transition: transform 0.3s;
         }
         .process-step:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-        .step-number {
-            background: var(--primary); color: white;
-            width: 50px; height: 50px; border-radius: 50%;
+        
+        /* Updated icon styling for features rather than numbered steps */
+        .feature-icon {
+            background: #EFF6FF; color: var(--primary);
+            width: 70px; height: 70px; border-radius: 16px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; font-weight: 700;
-            margin: 0 auto 20px; font-family: 'Outfit', sans-serif;
+            font-size: 2rem; margin: 0 auto 20px;
         }
-        .process-step h3 { margin-bottom: 15px; font-size: 1.3rem; }
+        .process-step h3 { margin-bottom: 15px; font-size: 1.3rem; color: var(--secondary); }
 
         /* --- Audit Form Layout --- */
         .audit-section { background: var(--secondary); color: white; }
         .audit-section h2 { color: white; font-size: 2.5rem; margin-bottom: 24px; }
         .audit-section p { color: #94A3B8; font-size: 1.1rem; margin-bottom: 32px; }
         .form-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .card-form {
-            background: white; padding: 40px;
-            border-radius: var(--radius); color: var(--text-dark);
-        }
+        .card-form { background: white; padding: 40px; border-radius: var(--radius); color: var(--text-dark); }
         .card-form h3 { margin-bottom: 24px; }
         .input-group { margin-bottom: 20px; text-align: left; }
         .input-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
         
-        /* Updated Form Inputs to include select and textarea */
         .input-group input, .input-group select, .input-group textarea {
-            width: 100%; padding: 14px;
-            border: 1px solid var(--border); border-radius: 8px;
-            font-family: inherit; font-size: 1rem;
-            background-color: white;
+            width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 8px;
+            font-family: inherit; font-size: 1rem; background-color: white;
         }
-        .input-group textarea {
-            resize: vertical; /* Let user resize only up/down */
-        }
+        .input-group textarea { resize: vertical; }
         .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
-            outline: none; border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
-        
-        .form-message {
-            margin-top: 16px; padding: 12px;
-            border-radius: 8px; font-weight: 600; text-align: center;
-        }
+        .form-message { margin-top: 16px; padding: 12px; border-radius: 8px; font-weight: 600; text-align: center; }
         .hidden { display: none; }
 
         /* --- Footer --- */
         .footer { background: #0B1120; color: #94A3B8; padding: 80px 0 20px; }
-        .footer-grid {
-            display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 40px; margin-bottom: 60px;
-        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 60px; }
         .footer-brand h2 { color: white; margin-bottom: 16px; }
         .footer-links h4, .footer-contact h4 { color: white; margin-bottom: 20px; }
         .footer-links a { display: block; color: #94A3B8; text-decoration: none; margin-bottom: 12px; transition: color 0.3s; }
@@ -237,26 +184,16 @@
 
         /* --- Mobile Responsiveness --- */
         @media (max-width: 992px) {
-            .form-layout { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .detail-grid, .form-layout { grid-template-columns: 1fr; gap: 40px; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
             .hide-mobile { display: none; }
             .menu-toggle { display: block; }
-            .nav-menu {
-                position: absolute; top: 100%; left: 0; right: 0;
-                background: white; flex-direction: column;
-                padding: 24px; box-shadow: var(--shadow-md);
-                display: none; gap: 20px;
-            }
+            .nav-menu { position: absolute; top: 100%; left: 0; right: 0; background: white; flex-direction: column; padding: 24px; box-shadow: var(--shadow-md); display: none; gap: 20px; }
             .nav-menu.active { display: flex; }
             .dropdown { width: 100%; }
-            .dropdown-menu {
-                position: static; box-shadow: none; border: none;
-                border-left: 3px solid var(--primary);
-                width: 100%; display: none;
-                margin-top: 10px; padding: 5px 0;
-            }
+            .dropdown-menu { position: static; box-shadow: none; border: none; border-left: 3px solid var(--primary); width: 100%; display: none; margin-top: 10px; padding: 5px 0; }
             .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu { display: block; }
             .footer-grid { grid-template-columns: 1fr; text-align: left; }
         }
@@ -300,7 +237,7 @@
                         <li><a href="customanalytics.html">Custom Analytics</a></li>
                     </ul>
                 </div>
-                <a href="whyus.html#about">Why Us</a>
+                <a href="whyus.html">Why Us</a>
                 <a href="index.html#contact">Contact</a>
                 <a href="freeaudit.html" class="btn btn-primary">Get Free Audit</a>
             </nav>
@@ -310,50 +247,81 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container reveal">
-            <h1>Professional Medical Billing Services</h1>
-            <p>Accelerate your cash flow, reduce denials, and focus on patient care with our end-to-end revenue cycle management solutions.</p>
+            <h1>Custom Financial Analytics</h1>
+            <p>Go beyond basic EHR reports. Our premium Business Intelligence (BI) dashboards transform your raw billing data into actionable insights, driving practice growth and maximizing profitability.</p>
         </div>
     </section>
 
-    <!-- Service Details & Process -->
+    <!-- Detailed Explanation Section -->
+    <section class="detail-section">
+        <div class="container detail-grid">
+            <div class="detail-content reveal">
+                <h2>Data-Driven Decisions for Your Practice</h2>
+                <p>Standard reporting modules in most EMR systems are rigid and fail to provide the deep visibility practice owners need. You know how much you billed, but do you know exactly *why* a specific payer is underpaying your top procedures?</p>
+                <p>As our flagship specialized service, Zxis Health provides custom-built analytics dashboards. We aggregate your clinical, financial, and operational data into one centralized, secure platform. Stop guessing and start making strategic decisions based on real-time data.</p>
+                
+                <ul class="detail-list">
+                    <li>Identify and eliminate systemic root causes of denials.</li>
+                    <li>Track provider productivity and RVU (Relative Value Unit) generation.</li>
+                    <li>Forecast future revenue based on historical collection trends.</li>
+                    <li>Negotiate better payer contracts using hard data on your yield.</li>
+                </ul>
+            </div>
+            <div class="detail-card reveal fade-right">
+                <h3>The KPIs We Track</h3>
+                <ul class="detail-list" style="margin-top:0;">
+                    <li><strong>Net Collection Rate (NCR):</strong> Are you actually collecting what you are contractually owed?</li>
+                    <li><strong>Days in A/R:</strong> How fast is cash entering the bank? (Target: < 30 days)</li>
+                    <li><strong>First Pass Resolution Rate (FPRR):</strong> The ultimate measure of clean coding and billing efficiency.</li>
+                    <li><strong>Denial Rate by Payer/Code:</strong> Pinpoint exactly which insurance company is stalling your cash flow.</li>
+                    <li><strong>E&M Bell Curve Analysis:</strong> Ensure your providers are not systematically under-coding or over-coding.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details & Process Grid -->
     <section class="section-padding bg-light">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Our Billing Workflow</h2>
-                <p>We don't just submit claims; we manage the entire lifecycle of your revenue.</p>
+                <h2>Powerful Reporting Features</h2>
+                <p>Our analytics suite provides total transparency into the financial health of your healthcare organization.</p>
             </div>
             
             <div class="process-grid">
                 <div class="process-step reveal">
-                    <div class="step-number">1</div>
-                    <h3>Charge Entry & Scrubbing</h3>
-                    <p>We capture all provider charges and run them through our AI-powered scrubber to catch missing modifiers and NCCI edit conflicts before submission.</p>
+                    <div class="feature-icon">📊</div>
+                    <h3>Interactive Dashboards</h3>
+                    <p>Access a secure, cloud-based portal updated in real-time. Use interactive filters to drill down from high-level yearly revenue all the way to individual patient claims.</p>
                 </div>
+                
                 <div class="process-step reveal" style="transition-delay: 100ms;">
-                    <div class="step-number">2</div>
-                    <h3>Electronic Submission</h3>
-                    <p>Clean claims are batched and submitted daily (EDI 837) to all commercial payers, Medicare, and Medicaid for faster turnaround times.</p>
+                    <div class="feature-icon">📉</div>
+                    <h3>Payer Yield Analysis</h3>
+                    <p>We analyze your contracted rates versus actual reimbursements. Instantly see which insurance payers are your most—and least—profitable partners.</p>
                 </div>
+                
                 <div class="process-step reveal" style="transition-delay: 200ms;">
-                    <div class="step-number">3</div>
-                    <h3>Payment Posting</h3>
-                    <p>Electronic Remittance Advice (ERA / EDI 835) files are automatically downloaded and posted, ensuring your accounts are always perfectly balanced.</p>
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <h3>Provider Scorecards</h3>
+                    <p>Compare the financial performance of multiple physicians within your practice. Track patient volume, RVUs generated, and individual denial rates.</p>
                 </div>
+                
                 <div class="process-step reveal" style="transition-delay: 300ms;">
-                    <div class="step-number">4</div>
-                    <h3>Denial Management</h3>
-                    <p>If a claim is rejected, our specialized A/R team immediately analyzes the CARC codes, corrects the issue, and files an appeal within 24 hours.</p>
+                    <div class="feature-icon">📬</div>
+                    <h3>Automated Executive Briefs</h3>
+                    <p>Receive customized monthly or weekly PDF summaries delivered straight to your inbox, highlighting the most critical financial shifts you need to know about.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- API Demo Form Section (Updated Fields) -->
+    <!-- API Demo Form Section -->
     <section id="api-demo-form" class="audit-section section-padding">
         <div class="container form-layout">
             <div class="form-content reveal">
-                <h2>Ready to Optimize Your Billing?</h2>
-                <p>Submit your details below for a free consultation. This form demonstrates a live asynchronous API connection to the backend server at <strong>api.zxishealth.com</strong>.</p>
+                <h2>Unlock Your Data's Potential.</h2>
+                <p>Submit your details below for a free consultation. Discover how our custom analytics can expose hidden revenue leaks and give you absolute control over your practice's finances.</p>
             </div>
             <div class="form-wrapper reveal fade-right">
                 <form id="billing-api-form" class="card-form">
@@ -377,19 +345,20 @@
                     <div class="input-group">
                         <label>Service You Want</label>
                         <select id="api-service" required>
-                            <option value="" disabled selected>Select a service...</option>
+                            <option value="" disabled>Select a service...</option>
                             <option value="medical-billing">Medical Billing</option>
                             <option value="medical-coding">Medical Coding</option>
                             <option value="ar-recovery">A/R Recovery</option>
                             <option value="eligibility">Eligibility Verification</option>
                             <option value="credentialing">Credentialing & Enrollment</option>
+                            <option value="analytics" selected>Custom Analytics & Reporting</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
                     
                     <div class="input-group">
                         <label>Drop your message here</label>
-                        <textarea id="api-message" rows="4" required placeholder="Tell us a bit about your practice or specific needs..."></textarea>
+                        <textarea id="api-message" rows="4" required placeholder="Tell us what financial metrics you are currently struggling to track..."></textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-primary w-full" id="api-submit-btn">
@@ -412,9 +381,9 @@
             <div class="footer-links">
                 <h4>Solutions</h4>
                 <a href="medical-billing.html">Medical Billing</a>
-                <a href="#">Denial Management</a>
-                <a href="#">Credentialing</a>
-                <a href="#">Prior Authorization</a>
+                <a href="medical-coding.html">Medical Coding</a>
+                <a href="ar-recovery.html">A/R Recovery</a>
+                <a href="custom-analytics.html">Custom Analytics</a>
             </div>
             <div class="footer-links">
                 <h4>Company</h4>
@@ -468,7 +437,7 @@
                 revealOnScroll.observe(el);
             });
 
-            // --- 3. API Integration ---
+            // --- 3. Dummy API Integration ---
             const apiForm = document.getElementById('billing-api-form');
             const apiStatusMessage = document.getElementById('api-status-message');
             const apiSubmitBtn = document.getElementById('api-submit-btn');
@@ -477,7 +446,7 @@
                 apiForm.addEventListener('submit', async (e) => {
                     e.preventDefault(); 
 
-                    // Capture new form fields
+                    // Capture form fields
                     const name = document.getElementById('api-name').value;
                     const email = document.getElementById('api-email').value;
                     const phone = document.getElementById('api-phone').value;
@@ -491,6 +460,7 @@
                         phone: phone,
                         service: service,
                         message: message,
+                        source: 'zxishealth.com - Analytics Lead'
                     };
 
                     const originalBtnText = apiSubmitBtn.innerHTML;
@@ -499,20 +469,28 @@
                     apiStatusMessage.classList.add('hidden');
 
                     try {
-                        const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
+                        const mockApiResponse = await new Promise((resolve) => {
+                            setTimeout(() => {
+                                resolve({
+                                    status: 200,
+                                    json: () => Promise.resolve({ 
+                                        success: true, 
+                                        leadId: "ZXIS-ANLY-" + Math.floor(Math.random() * 10000),
+                                        message: "Consultation request successfully logged."
+                                    })
+                                });
+                            }, 1500);
                         });
-                        const responseData = await response.json();
 
-                        if (response.ok) {
-                            apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message || 'Consultation request submitted successfully.'}`;
+                        const responseData = await mockApiResponse.json();
+
+                        if (mockApiResponse.status === 200) {
+                            apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message} <br> <small>Reference ID: ${responseData.leadId}</small>`;
                             apiStatusMessage.style.backgroundColor = '#D1FAE5';
                             apiStatusMessage.style.color = '#065F46';
                             apiForm.reset();
                         } else {
-                            throw new Error(responseData.message || 'Server rejected the request.');
+                            throw new Error("Server rejected the request.");
                         }
 
                     } catch (error) {

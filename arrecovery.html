@@ -219,11 +219,13 @@
                         <li><a href="medicalcoding.html">Medical Coding</a></li>
                         <li><a href="arrecovery.html">A/R Recovery</a></li>
                         <li><a href="eligibilityverification.html">Eligibility Verification</a></li>
+                        <li><a href="credentialing.html">Credentialing</a></li>
+                        <li><a href="customanalytics.html">Custom Analytics</a></li>
                     </ul>
                 </div>
-                <a href="index.html#about">Why Us</a>
+                <a href="whyus.html">Why Us</a>
                 <a href="index.html#contact">Contact</a>
-                <a href="#api-demo-form" class="btn btn-primary">Get Free Audit</a>
+                <a href="freeaudit.html" class="btn btn-primary">Get Free Audit</a>
             </nav>
         </div>
     </header>
@@ -400,7 +402,7 @@
                 revealOnScroll.observe(el);
             });
 
-            // --- 3. Dummy API Integration ---
+            // --- 3. API Integration ---
             const apiForm = document.getElementById('billing-api-form');
             const apiStatusMessage = document.getElementById('api-status-message');
             const apiSubmitBtn = document.getElementById('api-submit-btn');
@@ -423,7 +425,6 @@
                         phone: phone,
                         service: service,
                         message: message,
-                        source: 'zxishealth.com - A/R Recovery Lead'
                     };
 
                     const originalBtnText = apiSubmitBtn.innerHTML;
@@ -432,28 +433,20 @@
                     apiStatusMessage.classList.add('hidden');
 
                     try {
-                        const mockApiResponse = await new Promise((resolve) => {
-                            setTimeout(() => {
-                                resolve({
-                                    status: 200,
-                                    json: () => Promise.resolve({ 
-                                        success: true, 
-                                        leadId: "ZXIS-AR-" + Math.floor(Math.random() * 10000),
-                                        message: "Consultation request successfully logged."
-                                    })
-                                });
-                            }, 1500);
+                        const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
                         });
+                        const responseData = await response.json();
 
-                        const responseData = await mockApiResponse.json();
-
-                        if (mockApiResponse.status === 200) {
-                            apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message} <br> <small>Reference ID: ${responseData.leadId}</small>`;
+                        if (response.ok) {
+                            apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message || 'Consultation request submitted successfully.'}`;
                             apiStatusMessage.style.backgroundColor = '#D1FAE5';
                             apiStatusMessage.style.color = '#065F46';
                             apiForm.reset();
                         } else {
-                            throw new Error("Server rejected the request.");
+                            throw new Error(responseData.message || 'Server rejected the request.');
                         }
 
                     } catch (error) {
