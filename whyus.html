@@ -456,12 +456,17 @@
                         <label>How Can We Help?</label>
                         <select id="api-service" required>
                             <option value="" disabled selected>Select an option...</option>
-                            <option value="free-audit">Request a Free Audit</option>
-                            <option value="full-rcm">Full RCM Outsourcing</option>
-                            <option value="coding-only">Coding & Compliance</option>
-                            <option value="ar-cleanup">A/R Cleanup Project</option>
+                            <option value="other">Request a Free Audit</option>
+                            <option value="revenue_cycle_management">Full RCM Outsourcing</option>
+                            <option value="medical_coding">Coding & Compliance</option>
+                            <option value="other">A/R Cleanup Project</option>
                             <option value="other">General Inquiry</option>
                         </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Message</label>
+                        <textarea id="api-message" rows="4" required placeholder="Tell us about your current billing challenges..."></textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-primary w-full" id="api-submit-btn">
@@ -578,10 +583,10 @@
                     const email = document.getElementById('api-email').value;
                     const phone = document.getElementById('api-phone').value;
                     const service = document.getElementById('api-service').value;
+                    const message = document.getElementById('api-message').value;
 
                     const payload = {
-                        name: name, email: email, phone: phone, service: service,
-                        source: 'zxishealth.com - Why Us Page'
+                        name: name, email: email, phone: phone, service: service, message: message
                     };
 
                     const originalBtnText = apiSubmitBtn.innerHTML;
@@ -590,27 +595,19 @@
                     apiStatusMessage.classList.add('hidden');
 
                     try {
-                        const mockApiResponse = await new Promise((resolve) => {
-                            setTimeout(() => {
-                                resolve({
-                                    status: 200,
-                                    json: () => Promise.resolve({ 
-                                        success: true, 
-                                        leadId: "ZXIS-WHY-" + Math.floor(Math.random() * 10000),
-                                        message: "Inquiry successfully logged."
-                                    })
-                                });
-                            }, 1500);
+                        const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
                         });
+                        const responseData = await response.json();
 
-                        const responseData = await mockApiResponse.json();
-
-                        if (mockApiResponse.status === 200) {
+                        if (response.ok) {
                             apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message} <br> <small>Reference ID: ${responseData.leadId}</small>`;
                             apiStatusMessage.style.backgroundColor = '#D1FAE5';
                             apiStatusMessage.style.color = '#065F46';
                             apiForm.reset();
-                        } else { throw new Error("Server rejected the request."); }
+                        } else { throw new Error(responseData.message || "Server rejected the request."); }
 
                     } catch (error) {
                         apiStatusMessage.innerHTML = `❌ <strong>API Error:</strong> Could not connect to backend server.`;

@@ -321,12 +321,12 @@
                     <div class="input-group">
                         <label>Service You Want</label>
                         <select id="api-service" required>
-                            <option value="freeaudit.html" selected>Free Practice Financial Audit</option>
-                            <option value="medicalbiling">Medical Billing</option>
-                            <option value="medicalcoding">Medical Coding</option>
-                            <option value="arrecovery">A/R Recovery</option>
-                            <option value="eligibilityverification">Eligibility Verification</option>
-                            <option value="credentialing">Credentialing & Enrollment</option>
+                            <option value="other" selected>Free Practice Financial Audit</option>
+                            <option value="medical_billing">Medical Billing</option>
+                            <option value="medical_coding">Medical Coding</option>
+                            <option value="other">A/R Recovery</option>
+                            <option value="other">Eligibility Verification</option>
+                            <option value="medical_credentialing">Credentialing & Enrollment</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
@@ -507,7 +507,6 @@
                         phone: phone,
                         service: service,
                         message: message,
-                        source: 'zxishealth.com - Top Form Free Audit Request'
                     };
 
                     const originalBtnText = apiSubmitBtn.innerHTML;
@@ -516,32 +515,24 @@
                     apiStatusMessage.classList.add('hidden');
 
                     try {
-                        const mockApiResponse = await new Promise((resolve) => {
-                            setTimeout(() => {
-                                resolve({
-                                    status: 200,
-                                    json: () => Promise.resolve({ 
-                                        success: true, 
-                                        leadId: "ZXIS-AUDIT-" + Math.floor(Math.random() * 10000),
-                                        message: "Audit request successfully submitted."
-                                    })
-                                });
-                            }, 1500);
+                        const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
                         });
+                        const responseData = await response.json();
 
-                        const responseData = await mockApiResponse.json();
-
-                        if (mockApiResponse.status === 200) {
+                        if (response.ok) {
                             apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message} <br> <small>Reference ID: ${responseData.leadId}</small>`;
                             apiStatusMessage.style.backgroundColor = '#D1FAE5';
                             apiStatusMessage.style.color = '#065F46';
                             apiForm.reset();
                         } else {
-                            throw new Error("Server rejected the request.");
+                            throw new Error(responseData.message || "Server rejected the request.");
                         }
 
                     } catch (error) {
-                        apiStatusMessage.innerHTML = `❌ <strong>API Error:</strong> Could not connect to backend server.`;
+                        apiStatusMessage.innerHTML = `❌ <strong>Submission failed:</strong> ${error.message || 'Could not connect to backend server.'}`;
                         apiStatusMessage.style.backgroundColor = '#FEE2E2';
                         apiStatusMessage.style.color = '#991B1B';
                     } finally {

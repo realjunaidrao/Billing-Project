@@ -357,12 +357,12 @@
                         <label>Service You Want</label>
                         <select id="api-service" required>
                             <option value="" disabled>Select a service...</option>
-                            <option value="medical-billing">Medical Billing</option>
-                            <option value="medical-coding">Medical Coding</option>
-                            <option value="ar-recovery">A/R Recovery</option>
-                            <option value="eligibility">Eligibility Verification</option>
-                            <option value="credentialing">Credentialing & Enrollment</option>
-                            <option value="analytics" selected>Custom Analytics & Reporting</option>
+                            <option value="medical_billing">Medical Billing</option>
+                            <option value="medical_coding">Medical Coding</option>
+                            <option value="other">A/R Recovery</option>
+                            <option value="other">Eligibility Verification</option>
+                            <option value="medical_credentialing">Credentialing & Enrollment</option>
+                            <option value="other" selected>Custom Analytics & Reporting</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
@@ -472,7 +472,6 @@
                         phone: phone,
                         service: service,
                         message: message,
-                        source: 'zxishealth.com - Analytics Lead'
                     };
 
                     const originalBtnText = apiSubmitBtn.innerHTML;
@@ -481,28 +480,20 @@
                     apiStatusMessage.classList.add('hidden');
 
                     try {
-                        const mockApiResponse = await new Promise((resolve) => {
-                            setTimeout(() => {
-                                resolve({
-                                    status: 200,
-                                    json: () => Promise.resolve({ 
-                                        success: true, 
-                                        leadId: "ZXIS-ANLY-" + Math.floor(Math.random() * 10000),
-                                        message: "Consultation request successfully logged."
-                                    })
-                                });
-                            }, 1500);
+                        const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
                         });
+                        const responseData = await response.json();
 
-                        const responseData = await mockApiResponse.json();
-
-                        if (mockApiResponse.status === 200) {
+                        if (response.ok) {
                             apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message} <br> <small>Reference ID: ${responseData.leadId}</small>`;
                             apiStatusMessage.style.backgroundColor = '#D1FAE5';
                             apiStatusMessage.style.color = '#065F46';
                             apiForm.reset();
                         } else {
-                            throw new Error("Server rejected the request.");
+                            throw new Error(responseData.message || "Server rejected the request.");
                         }
 
                     } catch (error) {
