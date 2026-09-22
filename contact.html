@@ -274,6 +274,8 @@
             .contact-form { padding: 28px 20px; }
         }
     </style>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="signature-theme.css">
 </head>
 <body>
 
@@ -467,7 +469,7 @@
                             <option value="medical_coding">Medical Coding</option>
                             <option value="other">A/R Recovery</option>
                             <option value="other">Eligibility Verification</option>
-                            <option value="medical_credentialing">Credentialing & Enrollment</option>
+                            <option value="other">Credentialing & Enrollment</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
@@ -589,12 +591,13 @@
                     contactFormMessage.classList.add('hidden');
 
                     try {
-                        const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
+                        const apiUrl = window.location.hostname === 'zxishealth.com' ? '/api/submissions/' : 'https://zxishealth.com/api/submissions/';
+                        const response = await fetch(apiUrl, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(payload)
                         });
-                        const responseData = await response.json();
+                        const responseData = await response.json().catch(() => ({}));
 
                         if (!response.ok) {
                             throw new Error(responseData.message || 'Server rejected the request.');

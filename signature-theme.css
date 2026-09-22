@@ -1,0 +1,160 @@
+/* Zxis Health signature A/R Recovery theme */
+
+:root {
+    --primary: #0D9488;
+    --primary-dark: #0F766E;
+    --secondary: #0F172A;
+    --accent: #10B981;
+    --bg-light: #F8FAFC;
+}
+
+.btn-primary {
+    background: var(--primary) !important;
+    box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3) !important;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark) !important;
+}
+
+.page-header,
+.page-header-ar {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%) !important;
+    border-bottom: 4px solid var(--accent) !important;
+}
+
+.page-header h1,
+.page-header-ar h1 {
+    color: #fff !important;
+}
+
+.page-header p,
+.page-header-ar p {
+    color: #E2E8F0 !important;
+}
+
+.why-hero {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%) !important;
+    border-bottom: 4px solid var(--accent);
+}
+
+.why-hero h1,
+.why-hero p {
+    color: #fff !important;
+}
+
+.why-hero h1 span {
+    color: #6EE7B7 !important;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%) !important;
+}
+
+.contact-hero,
+.hero-split-section {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%) !important;
+    border-bottom: 4px solid var(--accent) !important;
+}
+
+.contact-hero {
+    background-image: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%), linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 30px 30px, 30px 30px !important;
+}
+
+.contact-hero-text p,
+.hero-text p {
+    color: #CBD5E1 !important;
+}
+
+.hero-list li span {
+    background: rgba(16, 185, 129, 0.2) !important;
+    color: #6EE7B7 !important;
+}
+
+.highlight-box {
+    background: #F0FDFA !important;
+    border-left-color: var(--accent) !important;
+}
+
+.process-step:hover {
+    border-color: var(--accent) !important;
+}
+
+.hero h1,
+.hero p {
+    color: #fff;
+}
+
+.hero p {
+    color: #CBD5E1;
+}
+
+.hero .badge {
+    background: rgba(16, 185, 129, 0.16);
+    color: #6EE7B7;
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #5EEAD4, #6EE7B7) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+}
+
+.btn-outline {
+    color: #99F6E4 !important;
+    border-color: #99F6E4 !important;
+}
+
+.btn-outline:hover {
+    background: var(--accent) !important;
+    border-color: var(--accent) !important;
+    color: var(--secondary) !important;
+}
+
+.stats-banner,
+.stats-band,
+.audit-section {
+    background: var(--secondary) !important;
+}
+
+.process-step,
+.process-step-ar {
+    border-left-color: var(--accent) !important;
+}
+
+.step-number,
+.step-number-ar,
+.icon-wrapper,
+.highlight-box,
+.detail-card,
+.service-card:hover {
+    border-color: #99F6E4 !important;
+}
+
+.icon-wrapper,
+.step-number,
+.step-number-ar {
+    background: #F0FDFA !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.18) !important;
+}
+
+.footer {
+    background: #0B1120 !important;
+}
+
+@media (max-width: 768px) {
+    .hero,
+    .page-header,
+    .page-header-ar,
+    .why-hero {
+        padding-top: 64px !important;
+        padding-bottom: 64px !important;
+    }
+}

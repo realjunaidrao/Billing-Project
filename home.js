@@ -85,7 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
             formMessage.classList.add('hidden');
 
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
+                const apiUrl = window.location.hostname === 'zxishealth.com'
+                    ? '/api/submissions/'
+                    : 'https://zxishealth.com/api/submissions/';
+                const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)

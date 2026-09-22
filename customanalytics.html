@@ -209,6 +209,8 @@
             .footer-grid { grid-template-columns: 1fr; text-align: left; }
         }
     </style>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="signature-theme.css">
 </head>
 <body>
 
@@ -361,7 +363,7 @@
                             <option value="medical_coding">Medical Coding</option>
                             <option value="other">A/R Recovery</option>
                             <option value="other">Eligibility Verification</option>
-                            <option value="medical_credentialing">Credentialing & Enrollment</option>
+                            <option value="other">Credentialing & Enrollment</option>
                             <option value="other" selected>Custom Analytics & Reporting</option>
                             <option value="other">Other</option>
                         </select>
@@ -472,6 +474,7 @@
                         phone: phone,
                         service: service,
                         message: message,
+                        source: 'zxishealth.com - Analytics Lead'
                     };
 
                     const originalBtnText = apiSubmitBtn.innerHTML;
@@ -480,15 +483,16 @@
                     apiStatusMessage.classList.add('hidden');
 
                     try {
-                        const response = await fetch('http://127.0.0.1:8000/api/submissions/', {
+                        const apiUrl = window.location.hostname === 'zxishealth.com' ? '/api/submissions/' : 'https://zxishealth.com/api/submissions/';
+                        const response = await fetch(apiUrl, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(payload)
                         });
-                        const responseData = await response.json();
+                        const responseData = await response.json().catch(() => ({}));
 
                         if (response.ok) {
-                            apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message} <br> <small>Reference ID: ${responseData.leadId}</small>`;
+                            apiStatusMessage.innerHTML = `✅ <strong>Success!</strong> ${responseData.message || 'Consultation request submitted successfully.'}`;
                             apiStatusMessage.style.backgroundColor = '#D1FAE5';
                             apiStatusMessage.style.color = '#065F46';
                             apiForm.reset();
@@ -497,7 +501,7 @@
                         }
 
                     } catch (error) {
-                        apiStatusMessage.innerHTML = `❌ <strong>API Error:</strong> Could not connect to backend server.`;
+                        apiStatusMessage.innerHTML = `❌ <strong>API Error:</strong> ${error.message || 'Could not connect to backend server.'}`;
                         apiStatusMessage.style.backgroundColor = '#FEE2E2';
                         apiStatusMessage.style.color = '#991B1B';
                     } finally {
