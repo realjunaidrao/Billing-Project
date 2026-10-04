@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Claim Scrubber | Zaxis Health</title>
+<meta name="description" content="Run Zaxis Health's free no-PHI claim scrubber — 14 automated checks for NPI, CPT, modifiers, ICD-10 linkage and timely filing before you bill.">
+<meta name="keywords" content="free claim scrubber, claim scrubber tool, pre-bill claim check, NPI validation, CPT modifier check, ICD-10 validation, timely filing check, denial prevention tool">
+<link rel="canonical" href="https://www.zxishealth.com/claim-scrubber.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Claim Scrubber | Zaxis Health">
+<meta property="og:description" content="Run 14 pre-bill checks in seconds — NPI, CPT, modifiers, ICD-10 linkage and timely filing. No PHI, no login, no upload.">
+<meta property="og:url" content="https://www.zxishealth.com/claim-scrubber.html">
+<meta property="og:image" content="https://www.zxishealth.com/assets/img/team-working.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Claim Scrubber | Zaxis Health">
+<meta name="twitter:description" content="14 automated pre-bill checks for NPI, CPT, modifiers, ICD-10 and timely filing — free, no PHI, runs in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Zaxis Health","url":"https://www.zxishealth.com/","logo":"https://www.zxishealth.com/assets/img/team-working.jpg","description":"Medical billing company providing revenue cycle management, AR recovery and denial management services to US healthcare practices.","email":"info@zxishealth.com","areaServed":"United States","sameAs":["https://www.linkedin.com/company/zxishealth","https://www.instagram.com/zxishealth","https://www.facebook.com/zxishealth","https://x.com/zxishealth"]}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Free Claim Scrubber | Zaxis Health","url":"https://www.zxishealth.com/claim-scrubber.html","description":"Run Zaxis Health's free no-PHI claim scrubber — 14 automated checks for NPI, CPT, modifiers, ICD-10 linkage and timely filing before you bill.","isPartOf":{"@type":"WebSite","name":"Zaxis Health","url":"https://www.zxishealth.com/"}}
+</script>
+<style>
+:root{
+  --midnight:var(--n950);
+  --blue:var(--brand-600);
+  --data:var(--brand-500);
+  --sky:#EAF2FE;
+  --violet:#7C3AED;
+  --paper:#FAFBFE;
+  --font-m:ui-monospace,'SF Mono','Cascadia Code','Roboto Mono',Menlo,Consolas,monospace;
+}
+html{scroll-behavior:smooth}
+/* ---- dark midnight hero strip ---- */
+.hero-strip{background:radial-gradient(900px 420px at 78% -10%,rgba(124,58,237,.22),transparent 60%),radial-gradient(760px 420px at 12% 110%,rgba(16,184,164,.16),transparent 60%),linear-gradient(180deg,var(--midnight),var(--n900));padding:76px 0 66px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08)}
+.hero-strip::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 80% 90% at 50% 0%,#000 20%,transparent 70%);pointer-events:none}
+.hero-strip .container{position:relative;z-index:1}
+.hero-strip .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-300);background:rgba(201,162,75,.12);border:1px solid rgba(201,162,75,.4);padding:9px 20px;border-radius:999px;margin-bottom:18px}
+.hero-strip .eyebrow .i{width:15px;height:15px}
+.hero-strip h1{color:#fff;font-size:clamp(34px,4.8vw,54px);margin:0 0 16px}
+.hero-strip h1 .grad{background:linear-gradient(92deg,var(--teal-300),#8FB8FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-strip .sub{color:#AEC2DE;font-size:18px;max-width:720px;margin:0 auto 28px}
+.hero-strip .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* ---- light paper tool body ---- */
+.tool-body{background:var(--paper);border-top:1px solid var(--line)}
+.phi-box{max-width:980px;margin:-34px auto 34px;position:relative;z-index:2;background:#FFFBEB;border:2px solid #F5C15C;border-radius:18px;padding:22px 26px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 14px 40px rgba(217,119,6,.14)}
+.phi-box .phi-ic{flex:0 0 auto;width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#F59E0B,#D97706);display:grid;place-items:center;color:#fff}
+.phi-box .phi-ic .i{width:24px;height:24px}
+.phi-box h3{font-size:17px;margin:0 0 6px;color:#92400E;font-family:var(--font-d)}
+.phi-box p{margin:0;color:#6B4E12;font-size:15px}
+.scrub-grid{display:grid;grid-template-columns:5fr 7fr;gap:28px;max-width:1200px;margin:0 auto}
+.scrub-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px;box-shadow:0 12px 40px rgba(8,20,38,.07)}
+.scrub-card h2{font-size:22px;margin-bottom:6px}
+.scrub-card .card-sub{color:var(--muted);font-size:14.5px;margin-bottom:24px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.f-field{display:flex;flex-direction:column;gap:7px}
+.f-field.full{grid-column:1/-1}
+.f-field label{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+.f-field label small{font-weight:500;color:var(--faint)}
+.f-field input,.f-field select{font-family:var(--font-b);font-size:15.5px;padding:13px 16px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);transition:.2s;width:100%}
+.f-field input:focus,.f-field select:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 4px rgba(124,58,237,.12)}
+.f-field input::placeholder{color:#A9BBD4}
+.btn-violet{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#8B5CF6,#6D28D9);color:#fff;border:none;font-weight:800;font-size:16px;font-family:var(--font-b);padding:16px 38px;border-radius:999px;cursor:pointer;transition:.28s;box-shadow:0 14px 32px rgba(124,58,237,.35);position:relative;overflow:hidden;white-space:nowrap}
+.btn-violet:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(124,58,237,.45)}
+.btn-violet .i{width:18px;height:18px}
+.btn-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--line);color:var(--ink);font-weight:700;font-size:15px;font-family:var(--font-b);padding:14px 26px;border-radius:999px;cursor:pointer;transition:.25s}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-ghost .i{width:16px;height:16px}
+/* ---- results ---- */
+.results-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px;box-shadow:0 12px 40px rgba(8,20,38,.07);min-height:560px}
+.results-empty{text-align:center;padding:90px 20px;color:var(--muted)}
+.results-empty .re-ic{width:72px;height:72px;border-radius:22px;background:var(--sky);display:grid;place-items:center;margin:0 auto 20px;color:var(--blue)}
+.results-empty .re-ic .i{width:34px;height:34px}
+.results-empty h3{font-size:20px;margin-bottom:8px}
+.score-band{display:flex;align-items:center;gap:22px;background:linear-gradient(135deg,var(--midnight),#14305c);border-radius:18px;padding:24px 28px;margin-bottom:24px;color:#fff}
+.score-num{font-family:var(--font-d);font-size:44px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.score-num small{font-size:20px;color:#AEC2DE;font-weight:700}
+.score-bar{flex:1;height:12px;background:rgba(255,255,255,.14);border-radius:999px;overflow:hidden;min-width:120px}
+.score-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal-500),var(--data));border-radius:999px;transition:width .8s var(--ease)}
+.score-msg{font-size:14.5px;color:#C9D6EC;max-width:420px}
+.check-list{display:grid;gap:10px}
+.check{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:15px 18px;background:#fff;transition:.2s}
+.check .c-ic{flex:0 0 auto;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:#fff;margin-top:1px}
+.check .c-ic .i{width:18px;height:18px}
+.check.pass .c-ic{background:linear-gradient(135deg,#22C55E,#15803D)}
+.check.warn .c-ic{background:linear-gradient(135deg,#F59E0B,#D97706)}
+.check.fail .c-ic{background:linear-gradient(135deg,#EF4444,#B91C1C)}
+.check.fail{border-color:#F3C1C1;background:#FEF7F7}
+.check.warn{border-color:#F0D9A8;background:#FFFCF3}
+.check .c-body h4{font-size:15px;margin:0 0 3px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.c-pill{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.c-pill.pass{background:#DCFCE7;color:#15803D}
+.c-pill.warn{background:#FEF3C7;color:#B45309}
+.c-pill.fail{background:#FEE2E2;color:#B91C1C}
+.check .c-body p{margin:0;font-size:13.8px;color:var(--muted);line-height:1.55}
+.check .c-body code{font-family:var(--font-m);font-size:12.5px;background:var(--bg);border:1px solid var(--line);padding:1px 7px;border-radius:6px;color:var(--ink)}
+.audit-cta{margin-top:26px;background:linear-gradient(135deg,#F3EEFF,#EAF2FE);border:1.5px dashed #B9A7F5;border-radius:18px;padding:26px 30px;text-align:center}
+.audit-cta h3{font-size:19px;margin-bottom:8px}
+.audit-cta p{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+.demo-note{max-width:1200px;margin:26px auto 0;text-align:center;color:var(--faint);font-size:13px}
+.tools-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1200px;margin:56px auto 0}
+.tool-mini{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;transition:.25s}
+.tool-mini:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:#B9A7F5}
+.tool-mini .t-ic{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--violet),var(--blue));display:grid;place-items:center;color:#fff;margin-bottom:14px}
+.tool-mini .t-ic .i{width:22px;height:22px}
+.tool-mini h3{font-size:17px;margin-bottom:6px}
+.tool-mini p{color:var(--muted);font-size:14px;margin-bottom:14px}
+@media(max-width:1020px){.scrub-grid{grid-template-columns:1fr}.results-card{min-height:0}}
+@media(max-width:640px){.f-row{grid-template-columns:1fr}.tools-strip{grid-template-columns:1fr}.score-band{flex-wrap:wrap}.scrub-card,.results-card{padding:24px 20px}}
+</style>
+<link rel="stylesheet" href="assets/css/ai-agent.css">
+  <link rel="stylesheet" href="assets/css/v5-chrome.css">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+</head>
+<body>
+
+<div class="announce"><strong>Free Revenue-Leak Review</strong> — we analyze your billing export and show you exactly where revenue is leaking.<a href="contact.html">Claim yours &rarr;</a></div>
+
+<div class="comp-bar"><span class="cb-item">HIPAA Compliant</span><span class="cb-sep"></span><span class="cb-item">AAPC Certified</span><span class="cb-sep cb-hide-m"></span><span class="cb-item cb-hide-m">264+ Revenue Audits</span></div>
+<header class="site"><div class="container nav">
+  <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="21" width="6" height="15" rx="1.5" fill="#3E8DEC"/><rect x="16" y="14" width="6" height="22" rx="1.5" fill="#38bdf8"/><rect x="25" y="7" width="6" height="29" rx="1.5" fill="#3CC489"/><path d="M7 41 L34 41 L34 36 L18 36 L34 20 L26 20 L10 36 Z" fill="#3E8DEC"/><circle cx="34" cy="10" r="3.6" fill="#7c3aed"/></svg></span><span class="brand-name">zaxis</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li class="has-drop"><a href="blog.html">Resources <svg class="i"><use href="#i-chev-down"/></svg></a>
+      <ul class="dropdown-menu">
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="sample-audit.html">Sample Audit</a></li>
+        <li><a href="calculator.html">Leak Calculator</a></li>
+        <li><a href="denial-lookup.html">Denial Code Lookup</a></li>
+        <li><a href="claim-scrubber.html">Claim Scrubber</a></li>
+        <li><a href="service-areas.html">Service Areas</a></li>
+        <li><a href="specialties.html">Specialties</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html">Free Revenue-Leak Review</a></div><button class="nav-toggle" aria-label="Open menu"><svg class="i"><use href="#i-menu"/></svg></button>
+</div></header>
+<div class="mp-overlay"></div>
+<nav class="mobile-panel" aria-label="Mobile navigation">
+  <div class="mp-head"><a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="21" width="6" height="15" rx="1.5" fill="#3E8DEC"/><rect x="16" y="14" width="6" height="22" rx="1.5" fill="#38bdf8"/><rect x="25" y="7" width="6" height="29" rx="1.5" fill="#3CC489"/><path d="M7 41 L34 41 L34 36 L18 36 L34 20 L26 20 L10 36 Z" fill="#3E8DEC"/><circle cx="34" cy="10" r="3.6" fill="#7c3aed"/></svg></span><span class="brand-name">zaxis</span></a><button class="nav-toggle mp-close" aria-label="Close menu"><svg class="i"><use href="#i-x"/></svg></button></div>
+  <a class="mp-link" href="index.html">Home</a>
+  <a class="mp-link" href="services.html">Services</a>
+  <a class="mp-link" href="pricing.html">Pricing</a>
+  <a class="mp-link" href="experience.html">Experience</a>
+  <a class="mp-link" href="about.html">About</a>
+  <a class="mp-link" href="contact.html">Contact</a>
+  <div class="mp-sec">Resources</div>
+  <a class="mp-link" href="blog.html">Blog</a>
+  <a class="mp-link" href="sample-audit.html">Sample Audit</a>
+  <a class="mp-link" href="calculator.html">Leak Calculator</a>
+  <a class="mp-link" href="denial-lookup.html">Denial Code Lookup</a>
+  <a class="mp-link" href="claim-scrubber.html">Claim Scrubber</a>
+  <a class="mp-link" href="service-areas.html">Service Areas</a>
+  <a class="mp-link" href="specialties.html">Specialties</a>
+  <a class="mp-link" href="faq.html">FAQ</a>
+  <a class="btn btn-primary" href="contact.html" style="margin-top:20px;width:100%">Free Revenue-Leak Review</a>
+</nav>
+
+<main>
+
+<section class="hero-strip"><div class="container">
+  <span class="eyebrow"><svg class="i"><use href="#i-sparkles"/></svg>Free Tool — No Login</span>
+  <h1>Claim <span class="grad">Scrubber</span></h1>
+  <p class="sub">Run 14 pre-bill checks in seconds. No PHI — use sample or de-identified data only.</p>
+  <div class="hero-cta">
+    <a class="btn-violet" href="#scrubber-tool"><svg class="i"><use href="#i-scan"/></svg>Scrub a Claim Now</a>
+    <a class="btn btn-outline" href="denial-lookup.html" style="border-color:rgba(255,255,255,.28);color:#fff;background:rgba(255,255,255,.06)">Denial Code Lookup</a>
+  </div>
+</div></section>
+
+<section class="section tool-body" id="scrubber-tool"><div class="container">
+
+  <div class="phi-box" role="alert">
+    <span class="phi-ic"><svg class="i"><use href="#i-shield-check"/></svg></span>
+    <div>
+      <h3>No PHI — demo only</h3>
+      <p>Do not enter real patient names, dates of birth, or any identifiers. This demo runs entirely in your browser; nothing is uploaded.</p>
+    </div>
+  </div>
+
+  <div class="scrub-grid">
+    <div class="scrub-card">
+      <h2>Enter a claim</h2>
+      <p class="card-sub">Fill in the fields below — or tap <strong>Load sample claim</strong> to see the scrubber in action.</p>
+      <div class="f-row">
+        <div class="f-field full">
+          <label for="npi">Rendering NPI</label>
+          <input type="text" id="npi" inputmode="numeric" maxlength="10" placeholder="10-digit NPI, e.g. 1234567890" autocomplete="off">
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f-field">
+          <label for="dosFrom">Date of Service — from</label>
+          <input type="date" id="dosFrom">
+        </div>
+        <div class="f-field">
+          <label for="dosTo">Date of Service — to</label>
+          <input type="date" id="dosTo">
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f-field full">
+          <label for="pos">Place of Service</label>
+          <select id="pos">
+            <option value="">Select place of service…</option>
+            <option value="11">11 — Office</option>
+            <option value="12">12 — Home</option>
+            <option value="19">19 — Off Campus-Outpatient Hospital</option>
+            <option value="21">21 — Inpatient Hospital</option>
+            <option value="22">22 — On Campus-Outpatient Hospital</option>
+            <option value="24">24 — Ambulatory Surgical Center (ASC)</option>
+            <option value="49">49 — Independent Clinic</option>
+            <option value="71">71 — Public Health Clinic</option>
+            <option value="72">72 — Rural Health Clinic</option>
+            <option value="81">81 — Independent Laboratory</option>
+            <option value="99">99 — Other Place of Service</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f-field">
+          <label for="cpt">CPT code</label>
+          <input type="text" id="cpt" inputmode="numeric" maxlength="5" placeholder="e.g. 99214" autocomplete="off">
+        </div>
+        <div class="f-field">
+          <label for="units">Units</label>
+          <input type="number" id="units" min="1" step="1" placeholder="e.g. 1" autocomplete="off">
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f-field full">
+          <label for="mods">Modifiers <small>(comma-separated, e.g. 25, 59)</small></label>
+          <input type="text" id="mods" placeholder="e.g. 25, 59" autocomplete="off">
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f-field full">
+          <label for="icd">ICD-10 codes <small>(comma-separated, e.g. M54.5)</small></label>
+          <input type="text" id="icd" placeholder="e.g. M54.5, I10" autocomplete="off">
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f-field">
+          <label for="amt">Billed amount <small>(USD)</small></label>
+          <input type="number" id="amt" min="0.01" step="0.01" placeholder="e.g. 285.00" autocomplete="off">
+        </div>
+        <div class="f-field">
+          <label for="tfl">Timely-filing limit <small>(days)</small></label>
+          <input type="number" id="tfl" min="1" step="1" value="90" autocomplete="off">
+        </div>
+      </div>
+      <div class="btn-actions">
+        <button class="btn-violet" id="runBtn" type="button"><svg class="i"><use href="#i-scan"/></svg>Run 14 Checks</button>
+        <button class="btn-ghost" id="sampleBtn" type="button"><svg class="i"><use href="#i-zap"/></svg>Load sample claim</button>
+      </div>
+    </div>
+
+    <div class="results-card" id="resultsCard" aria-live="polite">
+      <div class="results-empty" id="resultsEmpty">
+        <span class="re-ic"><svg class="i"><use href="#i-search"/></svg></span>
+        <h3>No claim scrubbed yet</h3>
+        <p>Enter a claim on the left — or load the sample claim —<br>then hit <strong>Run 14 Checks</strong>.</p>
+      </div>
+      <div id="resultsOut" hidden></div>
+    </div>
+  </div>
+
+  <p class="demo-note">Simplified pre-bill demo for education — payer-specific NCCI edits, LCD/NCD rules and contract checks are covered in our full Revenue Cycle Audit.</p>
+
+  <div class="tools-strip">
+    <div class="tool-mini">
+      <span class="t-ic"><svg class="i"><use href="#i-trend-up"/></svg></span>
+      <h3>Leak Calculator</h3>
+      <p>Move three sliders and see your estimated annual revenue leakage in 30 seconds.</p>
+      <a class="go" href="calculator.html">Calculate leakage →</a>
+    </div>
+    <div class="tool-mini">
+      <span class="t-ic"><svg class="i"><use href="#i-file-text"/></svg></span>
+      <h3>Denial Code Lookup</h3>
+      <p>Type any CARC code to get the meaning, why it happens, and exactly how to fix it.</p>
+      <a class="go" href="denial-lookup.html">Look up a code →</a>
+    </div>
+    <div class="tool-mini">
+      <span class="t-ic"><svg class="i"><use href="#i-clipboard"/></svg></span>
+      <h3>Sample Audit</h3>
+      <p>See what one billing export becomes — a full executive revenue-leak diagnosis.</p>
+      <a class="go" href="sample-audit.html">View sample audit →</a>
+    </div>
+  </div>
+
+</div></section>
+
+</main>
+
+<footer><div class="container">
+  <div class="foot-grid">
+    <div class="foot-brand"><a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="21" width="6" height="15" rx="1.5" fill="#3E8DEC"/><rect x="16" y="14" width="6" height="22" rx="1.5" fill="#38bdf8"/><rect x="25" y="7" width="6" height="29" rx="1.5" fill="#3CC489"/><path d="M7 41 L34 41 L34 36 L18 36 L34 20 L26 20 L10 36 Z" fill="#3E8DEC"/><circle cx="34" cy="10" r="3.6" fill="#7c3aed"/></svg></span><span class="brand-name">zaxis</span></a>
+      <p>AI-powered revenue cycle management for US healthcare practices. You take care of patients &mdash; we take care of billing.</p>
+      <p class="tagline">Predict. Perform. Grow.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/company/zxishealth" aria-label="LinkedIn">in</a>
+        <a href="https://www.instagram.com/zxishealth" aria-label="Instagram">&cir;</a>
+        <a href="https://www.facebook.com/zxishealth" aria-label="Facebook">f</a>
+        <a href="https://x.com/zxishealth" aria-label="X">&#120143;</a>
+      </div>
+    </div>
+    <div><h5>Services</h5><ul class="foot-links"><li><a href="services.html">Revenue Cycle Management</a></li><li><a href="services.html">AR Recovery</a></li><li><a href="services.html">Denial Management</a></li><li><a href="services.html">RCM Audit</a></li><li><a href="services.html">Startup Setup</a></li></ul></div>
+    <div><h5>Resources</h5><ul class="foot-links"><li><a href="blog.html">Blog</a></li>
+        <li><a href="sample-audit.html">Sample Audit</a></li>
+        <li><a href="calculator.html">Leak Calculator</a></li>
+        <li><a href="denial-lookup.html">Denial Code Lookup</a></li>
+        <li><a href="claim-scrubber.html">Claim Scrubber</a></li>
+        <li><a href="service-areas.html">Service Areas</a></li>
+        <li><a href="specialties.html">Specialties</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul></div>
+    <div><h5>Company</h5><ul class="foot-links"><li><a href="about.html">About Us</a></li><li><a href="experience.html">Experience</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h5>Get in Touch</h5><ul class="foot-links"><li><a href="mailto:info@zxishealth.com">info@zxishealth.com</a></li><li><a href="https://wa.me/923126060139">Chat on WhatsApp</a></li><li><a href="contact.html">Free Revenue-Leak Review</a></li></ul></div>
+  </div>
+  <div class="foot-bottom"><span>&copy; 2026 Zaxis Health. All rights reserved.</span><span>Medical billing services for practices in all 50 US states.</span><span class="foot-badges"><span class="fb hipaa"><svg class="i"><use href="#i-shield-check"/></svg>HIPAA Compliant &middot; BAA with every client</span><span class="fb aapc"><svg class="i"><use href="#i-award"/></svg>AAPC Certified Coding Team</span></span></div>
+</div><div class="disclaimer"><div class="container">EHR/practice-management logos shown are trademarks of their respective owners; shown to indicate system fluency. Stock photography is illustrative of our operations.</div></div></footer>
+
+<a class="wa-float" href="https://wa.me/923126060139" aria-label="Chat on WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.2.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.2.7-.1.2-.3.9-1 1.1-1.4.2-.3.5-.3.7-.2.3.1 1.6.8 1.9.9.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></a>
+
+<script src="assets/js/main.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  var fields = ["npi","dosFrom","dosTo","pos","cpt","mods","units","icd","amt","tfl"];
+
+  function parseDate(v){
+    if(!v) return null;
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v);
+    if(!m) return null;
+    var d = new Date(+m[1], +m[2]-1, +m[3]);
+    if(d.getFullYear()!==+m[1] || d.getMonth()!==+m[2]-1 || d.getDate()!==+m[3]) return null;
+    d.setHours(0,0,0,0);
+    return d;
+  }
+  function todayMidnight(){ var d = new Date(); d.setHours(0,0,0,0); return d; }
+  function fmtDate(d){ return d ? d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}) : "—"; }
+
+  // NPI check-digit: Luhn over "80840" + NPI
+  function npiLuhn(npi){
+    var s = "80840" + npi, sum = 0, dbl = false;
+    for(var i=s.length-1; i>=0; i--){
+      var d = +s.charAt(i);
+      if(dbl){ d *= 2; if(d>9) d -= 9; }
+      sum += d; dbl = !dbl;
+    }
+    return sum % 10 === 0;
+  }
+
+  function splitMods(v){
+    return v.split(",").map(function(x){ return x.trim().toUpperCase(); })
+      .filter(function(x){ return x.length > 0; });
+  }
+  function splitIcd(v){
+    return v.split(",").map(function(x){ return x.trim().toUpperCase(); })
+      .filter(function(x){ return x.length > 0; });
+  }
+  var ICD_RE = /^[A-TV-Z][0-9][0-9A-Z](\.[0-9A-Z]{1,4})?$/;
+  var POS_LIST = {"11":"Office","12":"Home","19":"Off Campus-Outpatient Hospital","21":"Inpatient Hospital","22":"On Campus-Outpatient Hospital","24":"Ambulatory Surgical Center (ASC)","49":"Independent Clinic","71":"Public Health Clinic","72":"Rural Health Clinic","81":"Independent Laboratory","99":"Other Place of Service"};
+
+  function runChecks(){
+    var npi = $("npi").value.trim();
+    var dosFrom = parseDate($("dosFrom").value);
+    var dosTo = parseDate($("dosTo").value);
+    var pos = $("pos").value;
+    var cpt = $("cpt").value.trim();
+    var mods = splitMods($("mods").value);
+    var units = parseInt($("units").value, 10);
+    var icds = splitIcd($("icd").value);
+    var amt = parseFloat($("amt").value);
+    var tfl = parseInt($("tfl").value, 10);
+    var today = todayMidnight();
+    var latest = dosTo || dosFrom;
+    var checks = [];
+
+    // 1 — NPI is 10 digits
+    if(/^\d{10}$/.test(npi)){
+      checks.push({s:"pass",t:"Rendering NPI is 10 digits",m:"NPI <code>"+npi+"</code> is the correct 10-digit format for claim submission."});
+    } else {
+      checks.push({s:"fail",t:"Rendering NPI is 10 digits",m:npi ? "Value <code>"+npi.replace(/</g,"&lt;")+"</code> is not 10 digits. NPIs are exactly 10 numeric characters — check for typos or a missing digit." : "No NPI entered. Every claim needs a valid 10-digit rendering (or billing) NPI."});
+    }
+
+    // 2 — NPI passes Luhn checksum
+    if(/^\d{10}$/.test(npi) && npiLuhn(npi)){
+      checks.push({s:"pass",t:"NPI passes Luhn checksum",m:"Check digit validates — this NPI is mathematically well-formed (CMS uses the Luhn algorithm on all NPIs)."});
+    } else if(/^\d{10}$/.test(npi)){
+      checks.push({s:"fail",t:"NPI passes Luhn checksum",m:"10 digits, but the check digit fails CMS's Luhn validation. This NPI will be rejected — verify it in the NPPES registry."});
+    } else {
+      checks.push({s:"fail",t:"NPI passes Luhn checksum",m:"Cannot validate the checksum until the NPI is a valid 10 digits."});
+    }
+
+    // 3 — DOS not in the future
+    if(latest && latest <= today){
+      checks.push({s:"pass",t:"Date of service is not in the future",m:"Latest service date is "+fmtDate(latest)+" — no future-dated services."});
+    } else if(latest){
+      checks.push({s:"fail",t:"Date of service is not in the future",m:"Service date "+fmtDate(latest)+" is in the future. Future-dated claims are rejected — confirm the correct date of service."});
+    } else {
+      checks.push({s:"fail",t:"Date of service is not in the future",m:"No valid date of service entered. Enter at least a service start date."});
+    }
+
+    // 4 — DOS-from <= DOS-to
+    if(dosFrom && dosTo){
+      if(dosFrom <= dosTo){
+        checks.push({s:"pass",t:"Service date range is valid",m:fmtDate(dosFrom)+" to "+fmtDate(dosTo)+" — start is on or before end."});
+      } else {
+        checks.push({s:"fail",t:"Service date range is valid",m:"Start date "+fmtDate(dosFrom)+" is after end date "+fmtDate(dosTo)+". Swap or correct the dates."});
+      }
+    } else if(dosFrom || dosTo){
+      checks.push({s:"pass",t:"Service date range is valid",m:"Single service date ("+fmtDate(dosFrom||dosTo)+") — treated as a one-day span."});
+    } else {
+      checks.push({s:"fail",t:"Service date range is valid",m:"No service dates entered. The claim cannot be built without a date of service."});
+    }
+
+    // 5 — CPT is 5 digits / numeric
+    if(/^\d{5}$/.test(cpt)){
+      checks.push({s:"pass",t:"CPT code format is valid",m:"CPT <code>"+cpt+"</code> is 5 numeric digits — the correct format."});
+    } else {
+      checks.push({s:"fail",t:"CPT code format is valid",m:cpt ? "Value <code>"+cpt.replace(/</g,"&lt;")+"</code> is not a 5-digit numeric CPT code. Check for letters, spaces or a short code." : "No CPT code entered. Every claim line needs a valid CPT/HCPCS code."});
+    }
+
+    // 6 — Modifiers are valid 2-character codes
+    var badMods = mods.filter(function(x){ return !/^[A-Z0-9]{2}$/.test(x); });
+    if(mods.length === 0){
+      checks.push({s:"pass",t:"Modifier format is valid",m:"No modifiers billed — nothing to validate."});
+    } else if(badMods.length === 0){
+      checks.push({s:"pass",t:"Modifier format is valid",m:"All modifiers are valid 2-character codes: <code>"+mods.join("</code>, <code>")+"</code>."});
+    } else {
+      checks.push({s:"fail",t:"Modifier format is valid",m:"Invalid modifier(s): <code>"+badMods.join("</code>, <code>")+"</code>. Modifiers must be exactly 2 alphanumeric characters (e.g. 25, 59, GT, XP)."});
+    }
+
+    // 7 — Modifier 25 requires an E/M CPT (99202–99499)
+    var has25 = mods.indexOf("25") !== -1;
+    var cptNum = parseInt(cpt, 10);
+    if(!has25){
+      checks.push({s:"pass",t:"Modifier 25 / E/M pairing",m:"Modifier 25 not billed — no E/M pairing rule applies."});
+    } else if(/^\d{5}$/.test(cpt) && cptNum >= 99202 && cptNum <= 99499){
+      checks.push({s:"pass",t:"Modifier 25 / E/M pairing",m:"Modifier 25 is paired with E/M CPT <code>"+cpt+"</code> — the required combination for a separately identifiable E/M service."});
+    } else {
+      checks.push({s:"fail",t:"Modifier 25 / E/M pairing",m:"Modifier 25 was billed but CPT <code>"+(cpt||"—")+"</code> is not an E/M code (99202–99499). Payers deny 25 on non-E/M codes — remove it or correct the CPT."});
+    }
+
+    // 8 — 59 / XS / XP / XE / XU → flag for documentation
+    var unbundle = mods.filter(function(x){ return ["59","XS","XP","XE","XU"].indexOf(x) !== -1; });
+    if(unbundle.length > 0){
+      checks.push({s:"warn",t:"Unbundling modifier review",m:"Modifier <code>"+unbundle.join("</code>, <code>")+"</code> flags this line as a distinct service. Make sure the documentation proves it was truly separate — payers audit these modifiers first."});
+    } else {
+      checks.push({s:"pass",t:"Unbundling modifier review",m:"No 59 / XS / XP / XE / XU modifiers — no extra documentation flag needed."});
+    }
+
+    // 9 — At least one ICD-10 linked
+    if(icds.length > 0){
+      checks.push({s:"pass",t:"Diagnosis linkage present",m:icds.length+(icds.length===1?" diagnosis":" diagnoses")+" linked: <code>"+icds.join("</code>, <code>")+"</code>."});
+    } else {
+      checks.push({s:"fail",t:"Diagnosis linkage present",m:"No ICD-10 codes entered. A claim without a diagnosis will be denied for missing information — link at least one."});
+    }
+
+    // 10 — ICD-10 format valid
+    if(icds.length === 0){
+      checks.push({s:"fail",t:"ICD-10 format is valid",m:"No ICD-10 codes to validate. Enter at least one diagnosis code."});
+    } else {
+      var badIcd = icds.filter(function(x){ return !ICD_RE.test(x); });
+      if(badIcd.length === 0){
+        checks.push({s:"pass",t:"ICD-10 format is valid",m:"All diagnosis codes match ICD-10 structure (letter + digits, optional decimal)."});
+      } else {
+        checks.push({s:"fail",t:"ICD-10 format is valid",m:"Invalid ICD-10 code(s): <code>"+badIcd.join("</code>, <code>")+"</code>. Codes start with a letter (A–T, V–Z), then digits — e.g. <code>M54.5</code>, <code>I10</code>."});
+      }
+    }
+
+    // 11 — POS present and valid
+    if(pos && POS_LIST[pos]){
+      checks.push({s:"pass",t:"Place of service is valid",m:"POS <code>"+pos+"</code> — "+POS_LIST[pos]+"."});
+    } else {
+      checks.push({s:"fail",t:"Place of service is valid",m:"No valid place of service selected. POS drives pricing and eligibility — pick the code matching where the service was performed."});
+    }
+
+    // 12 — Units >= 1
+    if(!isNaN(units) && units >= 1 && units === Math.floor(units)){
+      checks.push({s:"pass",t:"Units are valid",m:units+(units===1?" unit":" units")+" billed — a positive whole number."});
+    } else {
+      checks.push({s:"fail",t:"Units are valid",m:isNaN(units) ? "No units entered. Every claim line needs units ≥ 1." : "Units <code>"+units+"</code> is not valid. Units must be a whole number of 1 or more."});
+    }
+
+    // 13 — Billed amount > 0
+    if(!isNaN(amt) && amt > 0){
+      checks.push({s:"pass",t:"Billed amount is valid",m:"$"+amt.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})+" billed — greater than zero."});
+    } else {
+      checks.push({s:"fail",t:"Billed amount is valid",m:isNaN(amt) ? "No billed amount entered. The claim needs a positive charge amount." : "Billed amount must be greater than $0.00."});
+    }
+
+    // 14 — DOS within timely-filing window
+    if(!(tfl >= 1)){
+      checks.push({s:"fail",t:"Timely-filing window check",m:"Timely-filing limit is not set. Enter the payer's filing limit in days (default 90)."});
+    } else if(!latest){
+      checks.push({s:"fail",t:"Timely-filing window check",m:"Cannot check the filing window without a valid date of service."});
+    } else {
+      var daysAgo = Math.round((today - latest) / 86400000);
+      if(daysAgo < 0){
+        checks.push({s:"fail",t:"Timely-filing window check",m:"Service date is in the future — the filing window hasn't started yet."});
+      } else if(daysAgo <= tfl){
+        checks.push({s:"pass",t:"Timely-filing window check",m:"Service date is "+daysAgo+" day"+(daysAgo===1?"":"s")+" ago — inside the "+tfl+"-day timely-filing window."});
+      } else {
+        checks.push({s:"fail",t:"Timely-filing window check",m:"Service date is "+daysAgo+" days ago — past the "+tfl+"-day timely-filing limit. Timely-filing denials are almost never overturned; verify the payer's actual deadline."});
+      }
+    }
+
+    return checks;
+  }
+
+  function iconFor(s){
+    return s === "pass" ? "i-check" : (s === "warn" ? "i-alert" : "i-x");
+  }
+  function labelFor(s){
+    return s === "pass" ? "Pass" : (s === "warn" ? "Warn" : "Fail");
+  }
+
+  function render(){
+    var checks = runChecks();
+    var passed = checks.filter(function(c){ return c.s === "pass"; }).length;
+    var fails = checks.filter(function(c){ return c.s === "fail"; }).length;
+    var warns = checks.filter(function(c){ return c.s === "warn"; }).length;
+    var pct = Math.round(passed / checks.length * 100);
+
+    var msg;
+    if(fails === 0 && warns === 0){
+      msg = "Clean claim — every check passed. This claim is ready to bill.";
+    } else if(fails === 0){
+      msg = "No hard failures, but "+warns+" caution flag"+(warns===1?"":"s")+" need"+(warns===1?"s":"")+" documentation or review before billing.";
+    } else {
+      msg = fails+" issue"+(fails===1?"":"s")+" to fix before this claim goes out"+(warns?" plus "+warns+" caution flag"+(warns===1?"":"s"):"")+". Correct the failures above, then re-run.";
+    }
+
+    var rows = checks.map(function(c, i){
+      return '<div class="check '+c.s+'">'
+        + '<span class="c-ic"><svg class="i"><use href="#'+iconFor(c.s)+'"/></svg></span>'
+        + '<div class="c-body"><h4>'+(i+1)+'. '+c.t+' <span class="c-pill '+c.s+'">'+labelFor(c.s)+'</span></h4><p>'+c.m+'</p></div>'
+        + '</div>';
+    }).join("");
+
+    $("resultsEmpty").hidden = true;
+    var out = $("resultsOut");
+    out.hidden = false;
+    out.innerHTML =
+      '<div class="score-band">'
+      + '<div class="score-num">'+passed+'<small>/'+checks.length+' passed</small></div>'
+      + '<div class="score-bar"><i style="width:'+pct+'%"></i></div>'
+      + '<div class="score-msg">'+msg+'</div>'
+      + '</div>'
+      + '<div class="check-list">'+rows+'</div>'
+      + '<div class="audit-cta">'
+      + '<h3>This is 14 checks. A real audit runs hundreds.</h3>'
+      + '<p>Payer-specific edits, NCCI bundling, LCD coverage rules, underpayment detection — our free Revenue Cycle Audit covers the rest.</p>'
+      + '<a class="btn-violet" href="contact.html">Get a full Revenue Cycle Audit <svg class="i"><use href="#i-arrow-right"/></svg></a>'
+      + '</div>';
+  }
+
+  function isoDaysAgo(n){
+    var d = new Date(); d.setDate(d.getDate() - n);
+    var m = ""+(d.getMonth()+1), day = ""+d.getDate();
+    return d.getFullYear()+"-"+(m.length<2?"0"+m:m)+"-"+(day.length<2?"0"+day:day);
+  }
+
+  function loadSample(){
+    var d = isoDaysAgo(20);
+    $("npi").value = "1987654328";   // demo NPI, Luhn-valid
+    $("dosFrom").value = d;
+    $("dosTo").value = d;
+    $("pos").value = "11";
+    $("cpt").value = "99214";
+    $("mods").value = "25, 59";
+    $("units").value = "1";
+    $("icd").value = "M54.5";
+    $("amt").value = "285.00";
+    $("tfl").value = "90";
+    render();
+    document.getElementById("resultsCard").scrollIntoView({behavior:"smooth", block:"nearest"});
+  }
+
+  $("runBtn").addEventListener("click", render);
+  $("sampleBtn").addEventListener("click", loadSample);
+})();
+</script>
+<script src="assets/js/ai-agent.js"></script>
+<div class="sticky-cta"><a class="sc-btn sc-audit" href="contact.html">Free Audit</a><a class="sc-btn sc-wa" href="https://wa.me/923126060139" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
+</body>
+</html>

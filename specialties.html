@@ -14,17 +14,20 @@
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Zaxis Health","url":"https://www.zxishealth.com/","email":"info@zxishealth.com","areaServed":"United States"}</script>
 <link rel="stylesheet" href="assets/css/ai-agent.css">
+  <link rel="stylesheet" href="assets/css/v5-chrome.css">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 </head>
 <body>
 
 <div class="announce"><strong>Free Revenue-Leak Review</strong> — we analyze your billing export and show you exactly where revenue is leaking.<a href="contact.html">Claim yours &rarr;</a></div>
 
+<div class="comp-bar"><span class="cb-item">HIPAA Compliant</span><span class="cb-sep"></span><span class="cb-item">AAPC Certified</span><span class="cb-sep cb-hide-m"></span><span class="cb-item cb-hide-m">264+ Revenue Audits</span></div>
 <header class="site"><div class="container nav">
-  <a class="brand" href="index.html"><span class="brand-mark">Z</span><span class="brand-name">Zaxis <span>Health</span></span></a>
+  <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="21" width="6" height="15" rx="1.5" fill="#3E8DEC"/><rect x="16" y="14" width="6" height="22" rx="1.5" fill="#38bdf8"/><rect x="25" y="7" width="6" height="29" rx="1.5" fill="#3CC489"/><path d="M7 41 L34 41 L34 36 L18 36 L34 20 L26 20 L10 36 Z" fill="#3E8DEC"/><circle cx="34" cy="10" r="3.6" fill="#7c3aed"/></svg></span><span class="brand-name">zaxis</span></a>
   <ul class="nav-links">
     <li><a href="index.html" data-nav="index.html">Home</a></li>
     <li><a href="services.html" data-nav="services.html">Services</a></li>
@@ -36,9 +39,8 @@
         <li><a href="sample-audit.html">Sample Audit</a></li>
         <li><a href="calculator.html">Leak Calculator</a></li>
         <li><a href="denial-lookup.html">Denial Code Lookup</a></li>
-        <li><a href="wound-care-billing.html">Wound Care Billing</a></li>
-        <li><a href="lab-cpt-lookup.html">Lab CPT Lookup</a></li>
-        <li><a href="service-areas.html">Service Areas</a></li>
+        <li><a href="claim-scrubber.html">Claim Scrubber</a></li>
+                        <li><a href="service-areas.html">Service Areas</a></li>
         <li><a href="specialties.html">Specialties</a></li>
         <li><a href="faq.html">FAQ</a></li>
       </ul>
@@ -46,38 +48,64 @@
     <li><a href="about.html" data-nav="about.html">About</a></li>
     <li><a href="contact.html" data-nav="contact.html">Contact</a></li>
   </ul>
-  <div class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html">Free Revenue-Leak Review</a></div>
+  <div class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html">Free Revenue-Leak Review</a></div><button class="nav-toggle" aria-label="Open menu"><svg class="i"><use href="#i-menu"/></svg></button>
 </div></header>
+<div class="mp-overlay"></div>
+<nav class="mobile-panel" aria-label="Mobile navigation">
+  <div class="mp-head"><a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="21" width="6" height="15" rx="1.5" fill="#3E8DEC"/><rect x="16" y="14" width="6" height="22" rx="1.5" fill="#38bdf8"/><rect x="25" y="7" width="6" height="29" rx="1.5" fill="#3CC489"/><path d="M7 41 L34 41 L34 36 L18 36 L34 20 L26 20 L10 36 Z" fill="#3E8DEC"/><circle cx="34" cy="10" r="3.6" fill="#7c3aed"/></svg></span><span class="brand-name">zaxis</span></a><button class="nav-toggle mp-close" aria-label="Close menu"><svg class="i"><use href="#i-x"/></svg></button></div>
+  <a class="mp-link" href="index.html">Home</a>
+  <a class="mp-link" href="services.html">Services</a>
+  <a class="mp-link" href="pricing.html">Pricing</a>
+  <a class="mp-link" href="experience.html">Experience</a>
+  <a class="mp-link" href="about.html">About</a>
+  <a class="mp-link" href="contact.html">Contact</a>
+  <div class="mp-sec">Resources</div>
+  <a class="mp-link" href="blog.html">Blog</a>
+  <a class="mp-link" href="sample-audit.html">Sample Audit</a>
+  <a class="mp-link" href="calculator.html">Leak Calculator</a>
+  <a class="mp-link" href="denial-lookup.html">Denial Code Lookup</a>
+  <a class="mp-link" href="claim-scrubber.html">Claim Scrubber</a>
+      <a class="mp-link" href="service-areas.html">Service Areas</a>
+  <a class="mp-link" href="specialties.html">Specialties</a>
+  <a class="mp-link" href="faq.html">FAQ</a>
+  <a class="btn btn-primary" href="contact.html" style="margin-top:20px;width:100%">Free Revenue-Leak Review</a>
+</nav>
 <section class="page-hero"><div class="container">
   <span class="eyebrow">Specialties</span>
   <h1>Billing Expertise Across <span class="grad">125+ Specialties</span></h1>
   <p>From therapy to surgery to labs — if you bill US payers, we speak your specialty's coding, payer rules and denial patterns.</p>
 </div></section>
-<section class="section alt"><div class="container">
-  <div class="center reveal"><span class="eyebrow">Specialty billing guides</span><h2>Deep Dives for High-Denial Specialties</h2></div>
-  <div class="grid-2" style="max-width:900px;margin:26px auto 0;text-align:left">
-    <a class="card reveal" href="wound-care-billing.html" style="text-decoration:none"><div class="icon">🩹</div><h3>Wound Care Billing Guide</h3><p style="margin-top:8px">Debridement CPT selection by depth, modifier mastery (59, 25, LT/RT, TA–T9), podiatry coding &amp; documentation that prevents denials.</p><span class="go">Open the guide &rarr;</span></a>
-    <a class="card reveal" href="lab-cpt-lookup.html" style="text-decoration:none"><div class="icon">🧪</div><h3>Lab CPT Code Lookup</h3><p style="margin-top:8px">Search 30+ lab codes with billing tips, plus how the Medicare Clinical Lab Fee Schedule (CLFS) prices your tests.</p><span class="go">Open the lookup &rarr;</span></a>
+<section class="section"><div class="container">
+  <div class="center reveal"><span class="eyebrow">Specialty billing playbooks</span><h2>Billing Guides by Specialty</h2><p class="lead">Specialty-specific coding rules, denial traps and revenue plays — written for the way your specialty actually bills.</p></div>
+  <div class="grid-4" style="margin-top:8px">
+    <a class="card reveal" href="billing-dermatology.html" style="text-decoration:none"><div class="icon"><svg class="i"><use href="#i-scan"/></svg></div><h3>Dermatology</h3><p style="margin-top:8px">Medical vs. cosmetic separation, Mohs staging, biologics prior auth.</p><span class="go">Open guide &rarr;</span></a>
+    <a class="card reveal" href="billing-behavioral-health.html" style="text-decoration:none"><div class="icon"><svg class="i"><use href="#i-users"/></svg></div><h3>Behavioral Health</h3><p style="margin-top:8px">Session coding, telehealth rules, authorization tracking.</p><span class="go">Open guide &rarr;</span></a>
+    <a class="card reveal" href="billing-physical-therapy.html" style="text-decoration:none"><div class="icon"><svg class="i"><use href="#i-refresh"/></svg></div><h3>Physical Therapy</h3><p style="margin-top:8px">8-minute rule, KX modifier, timed-code accuracy.</p><span class="go">Open guide &rarr;</span></a>
+    <a class="card reveal" href="billing-dme.html" style="text-decoration:none"><div class="icon"><svg class="i"><use href="#i-package"/></svg></div><h3>DME</h3><p style="margin-top:8px">LCD compliance, capped rentals, prior-auth-first workflows.</p><span class="go">Open guide &rarr;</span></a>
+    <a class="card reveal" href="billing-urgent-care.html" style="text-decoration:none"><div class="icon"><svg class="i"><use href="#i-zap"/></svg></div><h3>Urgent Care</h3><p style="margin-top:8px">High-volume coding, POS 20, rapid credentialing.</p><span class="go">Open guide &rarr;</span></a>
+    <a class="card reveal" href="billing-cardiology.html" style="text-decoration:none"><div class="icon"><svg class="i"><use href="#i-heart"/></svg></div><h3>Cardiology</h3><p style="margin-top:8px">Cath lab coding, imaging auth, NCD compliance.</p><span class="go">Open guide &rarr;</span></a>
+    <a class="card reveal" href="billing-orthopedics.html" style="text-decoration:none"><div class="icon"><svg class="i"><use href="#i-trend-up"/></svg></div><h3>Orthopedics</h3><p style="margin-top:8px">Global periods, laterality, workers’ comp.</p><span class="go">Open guide &rarr;</span></a>
+    <a class="card reveal" href="billing-primary-care.html" style="text-decoration:none"><div class="icon"><svg class="i"><use href="#i-cross"/></svg></div><h3>Primary Care</h3><p style="margin-top:8px">AWV programs, CCM billing, preventive splits.</p><span class="go">Open guide &rarr;</span></a>
   </div>
 </div></section>
 <section class="section"><div class="container">
   <div class="center reveal"><span class="eyebrow">Deepest experience</span><h2>Top Specialties in Our Portfolio</h2><p class="lead">Client counts from our audited portfolio of 264+ practice folders.</p></div>
-  <div class="grid-4"><div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Therapy</h3><span class="sw-badge">10 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Family Medicine</h3><span class="sw-badge">10 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Pain Management</h3><span class="sw-badge">8 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Physical Therapy</h3><span class="sw-badge">7 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Primary Care</h3><span class="sw-badge">7 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Diagnostics</h3><span class="sw-badge">7 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Neurology</h3><span class="sw-badge">6 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Medical Group</h3><span class="sw-badge">6 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Rehabilitation</h3><span class="sw-badge">6 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Community Health</h3><span class="sw-badge">6 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Urgent Care</h3><span class="sw-badge">5 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Podiatry</h3><span class="sw-badge">4 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Mental Health</h3><span class="sw-badge">4 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Pediatrics</h3><span class="sw-badge">4 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Labs</h3><span class="sw-badge">4 clients</span></div>
-<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Hospital</h3><span class="sw-badge">4 clients</span></div>
+  <div class="grid-4"><div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Therapy</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Family Medicine</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Pain Management</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Physical Therapy</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Primary Care</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Diagnostics</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Neurology</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Medical Group</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Rehabilitation</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Community Health</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Urgent Care</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Podiatry</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Mental Health</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Pediatrics</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Labs</h3></div>
+<div class="card reveal" style="text-align:center"><h3 style="font-size:18px">Hospital</h3></div>
 </div>
   <div class="center reveal" style="margin-top:56px"><span class="eyebrow">Plus 100+ more</span><h2 style="font-size:26px">Also Covered</h2></div>
   <div class="who-grid reveal"><span class="who-pill">Orthopedics</span><span class="who-pill">Gastroenterology</span><span class="who-pill">Cardiology</span><span class="who-pill">Dermatology</span><span class="who-pill">Oncology</span><span class="who-pill">Psychiatry</span><span class="who-pill">Radiology</span><span class="who-pill">Anesthesiology</span><span class="who-pill">Ophthalmology</span><span class="who-pill">Optometry</span><span class="who-pill">Dental</span><span class="who-pill">Chiropractic</span><span class="who-pill">OB/GYN</span><span class="who-pill">Urology</span><span class="who-pill">Nephrology</span><span class="who-pill">Endocrinology</span><span class="who-pill">Pulmonology</span><span class="who-pill">Rheumatology</span><span class="who-pill">Infectious Disease</span><span class="who-pill">Wound Care</span><span class="who-pill">Hospice</span><span class="who-pill">Home Health</span><span class="who-pill">DME</span><span class="who-pill">Sleep Medicine</span><span class="who-pill">Allergy</span><span class="who-pill">ENT</span><span class="who-pill">General Surgery</span><span class="who-pill">Vascular Surgery</span><span class="who-pill">Plastic Surgery</span><span class="who-pill">Neurosurgery</span><span class="who-pill">Pathology</span><span class="who-pill">Emergency Medicine</span><span class="who-pill">Internal Medicine</span><span class="who-pill">Geriatrics</span><span class="who-pill">Sports Medicine</span><span class="who-pill">Occupational Therapy</span><span class="who-pill">Speech Therapy</span><span class="who-pill">ABA Therapy</span><span class="who-pill">Behavioral Health</span></div>
@@ -90,7 +118,7 @@
 </div></section>
 <footer><div class="container">
   <div class="foot-grid">
-    <div class="foot-brand"><a class="brand" href="index.html"><span class="brand-mark">Z</span><span class="brand-name">Zaxis <span>Health</span></span></a>
+    <div class="foot-brand"><a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="21" width="6" height="15" rx="1.5" fill="#3E8DEC"/><rect x="16" y="14" width="6" height="22" rx="1.5" fill="#38bdf8"/><rect x="25" y="7" width="6" height="29" rx="1.5" fill="#3CC489"/><path d="M7 41 L34 41 L34 36 L18 36 L34 20 L26 20 L10 36 Z" fill="#3E8DEC"/><circle cx="34" cy="10" r="3.6" fill="#7c3aed"/></svg></span><span class="brand-name">zaxis</span></a>
       <p>AI-powered revenue cycle management for US healthcare practices. You take care of patients &mdash; we take care of billing.</p>
       <p class="tagline">Predict. Perform. Grow.</p>
       <div class="socials">
@@ -105,9 +133,8 @@
         <li><a href="sample-audit.html">Sample Audit</a></li>
         <li><a href="calculator.html">Leak Calculator</a></li>
         <li><a href="denial-lookup.html">Denial Code Lookup</a></li>
-        <li><a href="wound-care-billing.html">Wound Care Billing</a></li>
-        <li><a href="lab-cpt-lookup.html">Lab CPT Lookup</a></li>
-        <li><a href="service-areas.html">Service Areas</a></li>
+        <li><a href="claim-scrubber.html">Claim Scrubber</a></li>
+                        <li><a href="service-areas.html">Service Areas</a></li>
         <li><a href="specialties.html">Specialties</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="pricing.html">Pricing</a></li>
@@ -115,12 +142,13 @@
     <div><h5>Company</h5><ul class="foot-links"><li><a href="about.html">About Us</a></li><li><a href="experience.html">Experience</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div><h5>Get in Touch</h5><ul class="foot-links"><li><a href="mailto:info@zxishealth.com">info@zxishealth.com</a></li><li><a href="https://wa.me/923126060139">Chat on WhatsApp</a></li><li><a href="contact.html">Free Revenue-Leak Review</a></li></ul></div>
   </div>
-  <div class="foot-bottom"><span>&copy; 2026 Zaxis Health. All rights reserved.</span><span>Medical billing services for practices in all 50 US states.</span><span>🔒 HIPAA-compliant &middot; BAA with every client</span></div>
-</div><div class="disclaimer"><div class="container">EHR/practice-management logos shown are trademarks of their respective owners; shown to indicate system fluency. Stock photography is illustrative of our operations. Social profiles are being finalized.</div></div></footer>
+  <div class="foot-bottom"><span>&copy; 2026 Zaxis Health. All rights reserved.</span><span>Medical billing services for practices in all 50 US states.</span><span class="foot-badges"><span class="fb hipaa"><svg class="i"><use href="#i-shield-check"/></svg>HIPAA Compliant &middot; BAA with every client</span><span class="fb aapc"><svg class="i"><use href="#i-award"/></svg>AAPC Certified Coding Team</span></span></div>
+</div><div class="disclaimer"><div class="container">EHR/practice-management logos shown are trademarks of their respective owners; shown to indicate system fluency. Stock photography is illustrative of our operations.</div></div></footer>
 
 <a class="wa-float" href="https://wa.me/923126060139" aria-label="Chat on WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.2.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.2.7-.1.2-.3.9-1 1.1-1.4.2-.3.5-.3.7-.2.3.1 1.6.8 1.9.9.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></a>
 
 <script src="assets/js/main.js"></script>
 <script src="assets/js/ai-agent.js"></script>
+<div class="sticky-cta"><a class="sc-btn sc-audit" href="contact.html">Free Audit</a><a class="sc-btn sc-wa" href="https://wa.me/923126060139" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
 </body>
 </html>

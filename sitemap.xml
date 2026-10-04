@@ -17,6 +17,18 @@
   <url><loc>https://www.zxishealth.com/sample-audit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.zxishealth.com/calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.zxishealth.com/denial-lookup.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.zxishealth.com/wound-care-billing.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.zxishealth.com/lab-cpt-lookup.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-california.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-texas.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-florida.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-new-york.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-arizona.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-dermatology.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-behavioral-health.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-physical-therapy.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-dme.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-urgent-care.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-cardiology.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-orthopedics.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/billing-primary-care.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.zxishealth.com/claim-scrubber.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>

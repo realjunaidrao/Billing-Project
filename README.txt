@@ -10,12 +10,6 @@ NEW IN v3.8
 - All visible phone numbers removed site-wide (footers, contact page, meta
   descriptions). WhatsApp remains as icon/button links only (wa.me, number hidden).
 
-CONSOLIDATION
-The latest implementations live in index.html, services.html, about.html,
-contact.html, and sample-audit.html. The old home URL and service-page URLs
-have been removed; use the current navigation and sitemap for supported URLs.
-Credentialing workflow details are now in services.html.
-
 ZAXIS HEALTH — WEBSITE PACKAGE (v3.3, 2026-10-04)
 =============================================
 Company name: Zaxis Health (domain: zxishealth.com — zaxishealth.com unavailable)
