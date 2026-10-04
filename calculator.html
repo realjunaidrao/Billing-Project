@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revenue Leak Calculator | How Much Is Your Practice Losing? | Zaxis Health</title>
+<meta name="description" content="Free interactive calculator: enter your monthly collections, denial rate and days in AR to estimate your practice's annual revenue leakage — and what recovery could be worth.">
+<meta name="keywords" content="medical billing ROI calculator, revenue leakage calculator, denial cost calculator, accounts receivable calculator, RCM calculator, how much revenue is my practice losing">
+<link rel="canonical" href="https://www.zxishealth.com/calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Revenue Leak Calculator | How Much Is Your Practice Losing? | Zaxis Health">
+<meta property="og:description" content="Free interactive calculator: enter your monthly collections, denial rate and days in AR to estimate your practice's annual revenue leakage — and what recovery could be worth.">
+<meta property="og:url" content="https://www.zxishealth.com/calculator.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Zaxis Health","url":"https://www.zxishealth.com/","email":"info@zxishealth.com","areaServed":"United States"}</script>
+<style>
+.calc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.calc-inputs{background:#fff;border:1px solid var(--line);border-radius:20px;padding:40px;box-shadow:var(--shadow)}
+.calc-field{margin-bottom:30px}
+.calc-field:last-child{margin-bottom:0}
+.calc-field .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.calc-field label{font-weight:700;color:var(--navy);font-size:15.5px}
+.calc-field .val{font-weight:800;color:var(--blue);font-size:19px;font-family:'Plus Jakarta Sans'}
+.calc-field input[type=range]{width:100%;appearance:none;-webkit-appearance:none;height:8px;border-radius:999px;background:linear-gradient(90deg,var(--blue) var(--fill,50%),#e2e8f0 var(--fill,50%));outline:none;cursor:pointer}
+.calc-field input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 4px 12px rgba(10,99,201,.4);cursor:grab}
+.calc-field input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--blue);cursor:grab}
+.calc-field .hint{font-size:13px;color:var(--muted);margin-top:8px}
+.calc-results{background:linear-gradient(150deg,var(--navy),#12315f);border-radius:20px;padding:40px;color:#fff;box-shadow:var(--shadow-lg);position:sticky;top:100px}
+.calc-results h3{color:#fff;font-size:20px;margin-bottom:6px}
+.calc-results .per{color:#9db4d6;font-size:13.5px;margin-bottom:24px}
+.leak-total{text-align:center;padding:26px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:24px}
+.leak-total .big{font-size:52px;font-weight:800;font-family:'Plus Jakarta Sans';color:#fff;letter-spacing:-.03em}
+.leak-total .cap{font-size:13.5px;color:#9db4d6;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:6px}
+.leak-rows{display:grid;gap:14px;margin-bottom:26px}
+.leak-row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 18px}
+.leak-row .lr-lbl{font-size:14px;color:#c9d8ef;font-weight:600}
+.leak-row .lr-lbl small{display:block;color:#8ba3c7;font-weight:400;font-size:12px}
+.leak-row .lr-val{font-weight:800;font-size:18px;color:#fff;font-family:'Plus Jakarta Sans';white-space:nowrap}
+.recover-box{background:rgba(15,157,118,.15);border:1px solid rgba(15,157,118,.4);border-radius:14px;padding:20px;text-align:center}
+.recover-box .rb-num{font-size:34px;font-weight:800;color:#34d399;font-family:'Plus Jakarta Sans'}
+.recover-box p{font-size:13.5px;color:#c9d8ef;margin-top:6px}
+.calc-cta{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.calc-note{font-size:12.5px;color:#8ba3c7;text-align:center;margin-top:14px}
+.donut-wrap{display:flex;justify-content:center;margin-bottom:8px}
+@media(max-width:1020px){.calc-wrap{grid-template-columns:1fr}.calc-results{position:static}
+</style>
+<link rel="stylesheet" href="assets/css/ai-agent.css">
+</head>
+<body>
+
+<div class="announce"><strong>Free Revenue-Leak Review</strong> — we analyze your billing export and show you exactly where revenue is leaking.<a href="contact.html">Claim yours &rarr;</a></div>
+
+<header class="site"><div class="container nav">
+  <a class="brand" href="index.html"><span class="brand-mark">Z</span><span class="brand-name">Zaxis <span>Health</span></span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li class="has-drop"><a href="blog.html">Resources &#9662;</a>
+      <ul class="dropdown-menu">
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="sample-audit.html">Sample Audit</a></li>
+        <li><a href="calculator.html">Leak Calculator</a></li>
+        <li><a href="denial-lookup.html">Denial Code Lookup</a></li>
+        <li><a href="wound-care-billing.html">Wound Care Billing</a></li>
+        <li><a href="lab-cpt-lookup.html">Lab CPT Lookup</a></li>
+        <li><a href="service-areas.html">Service Areas</a></li>
+        <li><a href="specialties.html">Specialties</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html">Free Revenue-Leak Review</a></div>
+</div></header>
+
+<section class="page-hero"><div class="container">
+  <span class="eyebrow">Free Interactive Tool</span>
+  <h1>How Much Revenue Is Your Practice <span class="grad">Leaking?</span></h1>
+  <p>Move the sliders to match your practice. Watch your estimated annual leakage — then see what recovering it could be worth.</p>
+</div></section>
+
+<section class="section"><div class="container">
+  <div class="calc-wrap">
+    <div class="calc-inputs reveal">
+      <div class="calc-field">
+        <div class="row"><label for="c-collections">Monthly collections</label><span class="val" id="v-collections">$150,000</span></div>
+        <input type="range" id="c-collections" min="20000" max="1000000" step="5000" value="150000">
+        <div class="hint">What you actually collect per month, on average.</div>
+      </div>
+      <div class="calc-field">
+        <div class="row"><label for="c-denial">Denial rate</label><span class="val" id="v-denial">12%</span></div>
+        <input type="range" id="c-denial" min="2" max="30" step="0.5" value="12">
+        <div class="hint">Industry benchmark: under 8%. Most practices underestimate theirs.</div>
+      </div>
+      <div class="calc-field">
+        <div class="row"><label for="c-ar">Days in A/R</label><span class="val" id="v-ar">55 days</span></div>
+        <input type="range" id="c-ar" min="20" max="120" step="1" value="55">
+        <div class="hint">Industry benchmark: under 40 days. Above 60 is a cash-flow emergency.</div>
+      </div>
+      <div class="calc-field">
+        <div class="row"><label for="c-under">Suspected underpayment rate</label><span class="val" id="v-under">1.5%</span></div>
+        <input type="range" id="c-under" min="0" max="5" step="0.25" value="1.5">
+        <div class="hint">Claims paid below your contracted rate. Almost nobody reconciles this.</div>
+      </div>
+    </div>
+    <div class="calc-results reveal">
+      <h3>Your estimated annual leakage</h3>
+      <div class="per">Based on MGMA-style industry benchmarks. Illustrative, not a guarantee.</div>
+      <div class="leak-total">
+        <div class="big" id="r-total">$0</div>
+        <div class="cap">leaking every year</div>
+      </div>
+      <div class="leak-rows">
+        <div class="leak-row"><div class="lr-lbl">Unworked denials<small>Excess denials &times; 65% never reworked</small></div><div class="lr-val" id="r-denial">$0</div></div>
+        <div class="leak-row"><div class="lr-lbl">Cash trapped in slow A/R<small>Collections delayed past 40 days</small></div><div class="lr-val" id="r-ar">$0</div></div>
+        <div class="leak-row"><div class="lr-lbl">Underpayments<small>Paid below contracted rates</small></div><div class="lr-val" id="r-under">$0</div></div>
+      </div>
+      <div class="recover-box">
+        <div class="rb-num" id="r-recover">$0</div>
+        <p>estimated recoverable with focused denial + A/R work.<br>At our 5% RCM fee, recovery typically pays for itself many times over.</p>
+      </div>
+      <div class="calc-cta">
+        <a class="btn btn-white" href="contact.html" style="justify-content:center">Get My Free Revenue-Leak Review</a>
+        <a class="btn btn-outline" style="border-color:#fff;color:#fff;justify-content:center" href="sample-audit.html">See a Real Sample Audit</a>
+      </div>
+      <div class="calc-note">Estimates use public industry benchmarks (MGMA). Your free review uses your real numbers.</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section alt"><div class="container">
+  <div class="center reveal"><span class="eyebrow">How the math works</span><h2>Transparent Estimates, Real Benchmarks</h2><p class="lead">No black box. Here's exactly what the calculator assumes:</p></div>
+  <div class="grid-3">
+    <div class="card reveal"><div class="icon">🚫</div><h3>Denial leakage</h3><p>Denials above the 8% benchmark, of which ~65% are never reworked in a typical practice (widely cited industry figure). We model the winnable share conservatively.</p></div>
+    <div class="card reveal"><div class="icon">⏳</div><h3>A/R drag</h3><p>Every day past 40 days in A/R locks a slice of annual collections in slow-moving receivables — cash you can't use and claims drifting toward timely-filing death.</p></div>
+    <div class="card reveal"><div class="icon">📉</div><h3>Underpayments</h3><p>Your stated % of collections paid below contracted rates. Practices that reconcile contracts routinely find 1–3% hiding here.</p></div>
+  </div>
+  <div class="center reveal" style="margin-top:36px"><a class="btn btn-primary" href="contact.html">Verify With Your Real Numbers — Free</a></div>
+</div></section>
+
+<footer><div class="container">
+  <div class="foot-grid">
+    <div class="foot-brand"><a class="brand" href="index.html"><span class="brand-mark">Z</span><span class="brand-name">Zaxis <span>Health</span></span></a>
+      <p>AI-powered revenue cycle management for US healthcare practices. You take care of patients &mdash; we take care of billing.</p>
+      <p class="tagline">Predict. Perform. Grow.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/company/zxishealth" aria-label="LinkedIn">in</a>
+        <a href="https://www.instagram.com/zxishealth" aria-label="Instagram">&cir;</a>
+        <a href="https://www.facebook.com/zxishealth" aria-label="Facebook">f</a>
+        <a href="https://x.com/zxishealth" aria-label="X">&#120143;</a>
+      </div>
+    </div>
+    <div><h5>Services</h5><ul class="foot-links"><li><a href="services.html">Revenue Cycle Management</a></li><li><a href="services.html">AR Recovery</a></li><li><a href="services.html">Denial Management</a></li><li><a href="services.html">RCM Audit</a></li><li><a href="services.html">Startup Setup</a></li></ul></div>
+    <div><h5>Resources</h5><ul class="foot-links"><li><a href="blog.html">Blog</a></li>
+        <li><a href="sample-audit.html">Sample Audit</a></li>
+        <li><a href="calculator.html">Leak Calculator</a></li>
+        <li><a href="denial-lookup.html">Denial Code Lookup</a></li>
+        <li><a href="wound-care-billing.html">Wound Care Billing</a></li>
+        <li><a href="lab-cpt-lookup.html">Lab CPT Lookup</a></li>
+        <li><a href="service-areas.html">Service Areas</a></li>
+        <li><a href="specialties.html">Specialties</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul></div>
+    <div><h5>Company</h5><ul class="foot-links"><li><a href="about.html">About Us</a></li><li><a href="experience.html">Experience</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h5>Get in Touch</h5><ul class="foot-links"><li><a href="mailto:info@zxishealth.com">info@zxishealth.com</a></li><li><a href="https://wa.me/923126060139">Chat on WhatsApp</a></li><li><a href="contact.html">Free Revenue-Leak Review</a></li></ul></div>
+  </div>
+  <div class="foot-bottom"><span>&copy; 2026 Zaxis Health. All rights reserved.</span><span>Medical billing services for practices in all 50 US states.</span><span>🔒 HIPAA-compliant &middot; BAA with every client</span></div>
+</div><div class="disclaimer"><div class="container">EHR/practice-management logos shown are trademarks of their respective owners; shown to indicate system fluency. Stock photography is illustrative of our operations. Social profiles are being finalized. Sample audit figures are from a de-identified client engagement. Calculator results are estimates based on industry benchmarks, not guarantees.</div></div></footer>
+
+<a class="wa-float" href="https://wa.me/923126060139" aria-label="Chat on WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.2.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.2.7-.1.2-.3.9-1 1.1-1.4.2-.3.5-.3.7-.2.3.1 1.6.8 1.9.9.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></a>
+
+<script src="assets/js/main.js"></script>
+<script>
+(function(){
+  var f = function(id){ return document.getElementById(id); };
+  var money = function(n){ return "$" + Math.round(n).toLocaleString("en-US"); };
+  var cur = {total: 0};
+  function animateTotal(to){
+    var from = cur.total, t0 = null, dur = 600;
+    function tick(t){
+      if(!t0) t0 = t;
+      var p = Math.min((t-t0)/dur, 1), e = 1-Math.pow(1-p,3);
+      f("r-total").textContent = money(from + (to-from)*e);
+      if(p<1) requestAnimationFrame(tick); else cur.total = to;
+    }
+    requestAnimationFrame(tick);
+  }
+  function paintSlider(el){
+    var pct = (el.value - el.min)/(el.max - el.min)*100;
+    el.style.setProperty("--fill", pct + "%");
+  }
+  function calc(){
+    var monthly = +f("c-collections").value;
+    var denial = +f("c-denial").value;
+    var ar = +f("c-ar").value;
+    var under = +f("c-under").value;
+    var annual = monthly * 12;
+    f("v-collections").textContent = money(monthly);
+    f("v-denial").textContent = denial + "%";
+    f("v-ar").textContent = ar + " days";
+    f("v-under").textContent = under + "%";
+    ["c-collections","c-denial","c-ar","c-under"].forEach(function(id){ paintSlider(f(id)); });
+    var excessDenial = Math.max(0, denial - 8) / 100;
+    var denialLeak = annual * excessDenial * 0.65 * 0.5;
+    var arLeak = annual * Math.max(0, ar - 40) / 365 * 0.9;
+    var underLeak = annual * under / 100;
+    var total = denialLeak + arLeak + underLeak;
+    var recoverable = denialLeak * 0.7 + arLeak * 0.5 + underLeak * 0.6;
+    f("r-denial").textContent = money(denialLeak);
+    f("r-ar").textContent = money(arLeak);
+    f("r-under").textContent = money(underLeak);
+    f("r-recover").textContent = money(recoverable);
+    animateTotal(total);
+  }
+  ["c-collections","c-denial","c-ar","c-under"].forEach(function(id){
+    f(id).addEventListener("input", calc);
+  });
+  calc();
+})();
+</script>
+<script src="assets/js/ai-agent.js"></script>
+</body>
+</html>

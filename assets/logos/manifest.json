@@ -1,0 +1,226 @@
+[
+  {
+    "slug": "kinnser",
+    "name": "Kinnser Software",
+    "file": "assets/logos/kinnser.webp",
+    "site": "https://www.wellsky.com",
+    "source": ""
+  },
+  {
+    "slug": "matrixcare",
+    "name": "MatrixCare",
+    "file": "assets/logos/matrixcare.webp",
+    "site": "https://www.matrixcare.com",
+    "source": "https://realtimemed.com/event/zimmetwood-conference/"
+  },
+  {
+    "slug": "brightree",
+    "name": "Brightree",
+    "file": "assets/logos/brightree.png",
+    "site": "https://www.brightree.com",
+    "source": ""
+  },
+  {
+    "slug": "ezclaim",
+    "name": "EZClaim",
+    "file": "assets/logos/ezclaim.png",
+    "site": "https://www.ezclaim.com",
+    "source": "https://www.sevocity.com/custom-ehr-software/integration-list/billing-service-partner-integrations/"
+  },
+  {
+    "slug": "claimmd",
+    "name": "Claim.MD",
+    "file": "assets/logos/claimmd.png",
+    "site": "https://www.claim.md",
+    "source": "https://www.synergyinfoconnect.com/empowering-synergy-infoconnect/"
+  },
+  {
+    "slug": "elation",
+    "name": "Elation Health",
+    "file": "assets/logos/elation.png",
+    "site": "https://www.elationhealth.com",
+    "source": ""
+  },
+  {
+    "slug": "theranest",
+    "name": "TheraNest",
+    "file": "assets/logos/theranest.png",
+    "site": "https://www.theranest.com",
+    "source": "https://simply.coach/web-stories/top-5-time-saving-hipaa-compliant-software-for-therapists-and-counsellors/"
+  },
+  {
+    "slug": "valant",
+    "name": "Valant",
+    "file": "assets/logos/valant.png",
+    "site": "https://www.valant.io",
+    "source": "https://www.edgemdsolution.com/"
+  },
+  {
+    "slug": "talkehr",
+    "name": "TalkEHR",
+    "file": "assets/logos/talkehr.png",
+    "site": "https://www.talkehr.com",
+    "source": "https://www.connect4webdesign.com/logo-design-utah/"
+  },
+  {
+    "slug": "webpt",
+    "name": "WebPT",
+    "file": "assets/logos/webpt.png",
+    "site": "https://www.webpt.com",
+    "source": "https://www.trustradius.com/products/webpt/reviews?qs=scaleability-rating"
+  },
+  {
+    "slug": "therapynotes",
+    "name": "TherapyNotes",
+    "file": "assets/logos/therapynotes.webp",
+    "site": "https://www.therapynotes.com",
+    "source": "https://unislink.com/medical-billing-services/ehr-platforms/"
+  },
+  {
+    "slug": "axxess",
+    "name": "Axxess",
+    "file": "assets/logos/axxess.jpg",
+    "site": "https://www.axxess.com",
+    "source": "https://www.mmfybjy.com/k-20260825-xqimLDvdL62lO1"
+  },
+  {
+    "slug": "epic",
+    "name": "Epic Systems",
+    "file": "assets/logos/epic.png",
+    "site": "https://www.epic.com",
+    "source": "https://news.vumc.org/author/news/page/3/"
+  },
+  {
+    "slug": "kareo",
+    "name": "Kareo",
+    "file": "assets/logos/kareo.png",
+    "site": "https://www.tebra.com",
+    "source": "https://practicegen.com/"
+  },
+  {
+    "slug": "allscripts",
+    "name": "Allscripts",
+    "file": "assets/logos/allscripts.jpg",
+    "site": "https://www.veradigm.com",
+    "source": ""
+  },
+  {
+    "slug": "prognocis",
+    "name": "PrognoCIS",
+    "file": "assets/logos/prognocis.png",
+    "site": "https://www.bizmaticsinc.com",
+    "source": "https://medicusbilling.com/"
+  },
+  {
+    "slug": "modmed",
+    "name": "ModMed",
+    "file": "assets/logos/modmed.png",
+    "site": "https://www.modmed.com",
+    "source": "https://pydata.org/miami2019/sponsors/"
+  },
+  {
+    "slug": "officeally",
+    "name": "Office Ally",
+    "file": "assets/logos/officeally.png",
+    "site": "https://www.officeally.com",
+    "source": ""
+  },
+  {
+    "slug": "curemd",
+    "name": "CureMD",
+    "file": "assets/logos/curemd.png",
+    "site": "https://www.curemd.com",
+    "source": "https://rassbpo.com/"
+  },
+  {
+    "slug": "experity",
+    "name": "Experity",
+    "file": "assets/logos/experity.jpg",
+    "site": "https://www.experityhealth.com",
+    "source": "https://www.accuratereviews.com/patient-scheduling-apps/zocdoc-review/"
+  },
+  {
+    "slug": "wellsky",
+    "name": "WellSky",
+    "file": "assets/logos/wellsky.jpg",
+    "site": "https://www.wellsky.com",
+    "source": "https://www.usaging.org/leadershipinstitute"
+  },
+  {
+    "slug": "oraclehealth",
+    "name": "Oracle Health",
+    "file": "assets/logos/oraclehealth.webp",
+    "site": "https://www.oracle.com/health",
+    "source": "https://www.mfan.org/research-reports/2023-military-family-support-programming-survey-results"
+  },
+  {
+    "slug": "veradigm",
+    "name": "Veradigm",
+    "file": "assets/logos/veradigm.png",
+    "site": "https://www.veradigm.com",
+    "source": "https://resources.wisdominterface.com/2025/10/14/the-real-world-data-disconnect-why-insights-still-fall-short-in-complex-populations/"
+  },
+  {
+    "slug": "nethealth",
+    "name": "Net Health",
+    "file": "assets/logos/nethealth.webp",
+    "site": "https://www.nethealth.com",
+    "source": "https://www.beckershospitalreview.com/finance/a-time-for-revenue-resilience/"
+  },
+  {
+    "slug": "greenway",
+    "name": "Greenway Health",
+    "file": "assets/logos/greenway.jpg",
+    "site": "https://www.greenwayhealth.com",
+    "source": "http://www.mobilehealthtimes.com/news/page/182/"
+  },
+  {
+    "slug": "tebra",
+    "name": "Tebra",
+    "file": "assets/logos/tebra.png",
+    "site": "https://www.tebra.com",
+    "source": "https://www.edgemdsolution.com/"
+  },
+  {
+    "slug": "simplepractice",
+    "name": "SimplePractice",
+    "file": "assets/logos/simplepractice.png",
+    "site": "https://www.simplepractice.com",
+    "source": "https://seeklogo.com/vector-logo/616373/simple-practice"
+  },
+  {
+    "slug": "nextgen",
+    "name": "NextGen Healthcare",
+    "file": "assets/logos/nextgen.webp",
+    "site": "https://www.nextgen.com",
+    "source": "https://compunetlab.com/providers/connectivity-solutions/"
+  },
+  {
+    "slug": "drchrono",
+    "name": "DrChrono",
+    "file": "assets/logos/drchrono.png",
+    "site": "https://www.drchrono.com",
+    "source": "http://paysimple.com/partner/pricing/drchrono-pricing-standard-wp/"
+  },
+  {
+    "slug": "eclinicalworks",
+    "name": "eClinicalWorks",
+    "file": "assets/logos/eclinicalworks.jpg",
+    "site": "https://www.eclinicalworks.com",
+    "source": "https://www.indivirtusab7.com/"
+  },
+  {
+    "slug": "advancedmd",
+    "name": "AdvancedMD",
+    "file": "assets/logos/advancedmd.svg",
+    "site": "https://www.advancedmd.com",
+    "source": "https://www.rivethealth.com/contracts"
+  },
+  {
+    "slug": "athenahealth",
+    "name": "athenahealth",
+    "file": "assets/logos/athenahealth.png",
+    "site": "https://www.athenahealth.com",
+    "source": "https://onebreadonebodymd.com/schedule-appointment/"
+  }
+]
